@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ma+AVsR8P3JWcAZhwmNJILs/UeBLxnHUdEIfXrhuWwEs7CdzgL5/EWwugtW9ArDNLxoV7Wdj7TSQJIzNooXJwA==",
+  "success": true,
+  "projectFilePath": "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\WebAPI_NauticoSport\\WebAPI_NauticoSport.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\danig\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\danig\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\danig\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\danig\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\danig\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\danig\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
