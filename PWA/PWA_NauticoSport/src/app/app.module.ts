@@ -15,10 +15,10 @@ import { SharedModule } from './modules/shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FeaturesModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
     }),
-    FeaturesModule,
     SharedModule
   ],
   providers: [],
