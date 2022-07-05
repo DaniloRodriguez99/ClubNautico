@@ -5,22 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { PagesModule } from './pages/pages.module';
+import { FeaturesModule } from './modules/features/features.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    PagesModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:3000'
-    })
+    }),
+    FeaturesModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
