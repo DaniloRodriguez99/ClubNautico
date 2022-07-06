@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "BZhRcrSbo2aH4JI39uust1dUesNGVIKDSB2P3gh5Oe0=",
+  "Source": "WebAPI_NauticoSport",
+  "BasePath": "_content/WebAPI_NauticoSport",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

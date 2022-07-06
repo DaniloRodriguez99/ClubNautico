@@ -72,6 +72,43 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "CrossCuttingConcerns/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/CrossCuttingConcerns.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CrossCuttingConcerns.dll": {}
+        }
+      },
+      "DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CrossCuttingConcerns": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccess.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CrossCuttingConcerns": "1.0.0",
+          "DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
       }
     }
   },
@@ -200,10 +237,27 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "CrossCuttingConcerns/1.0.0": {
+      "type": "project",
+      "path": "../CrossCuttingConcerns/CrossCuttingConcerns.csproj",
+      "msbuildProject": "../CrossCuttingConcerns/CrossCuttingConcerns.csproj"
+    },
+    "DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../DataAccess/DataAccess.csproj",
+      "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CrossCuttingConcerns >= 1.0.0",
+      "Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -233,7 +287,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\CrossCuttingConcerns\\CrossCuttingConcerns.csproj": {
+              "projectPath": "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\CrossCuttingConcerns\\CrossCuttingConcerns.csproj"
+            },
+            "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\Domain\\Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI_NauticoSport", "WebAPI_NauticoSport\WebAPI_NauticoSport.csproj", "{B0FA4B89-85A6-480E-8A2C-7C435C067BDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI_NauticoSport", "WebAPI_NauticoSport\WebAPI_NauticoSport.csproj", "{B0FA4B89-85A6-480E-8A2C-7C435C067BDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{1F44352A-0D96-430A-A5D4-6D601874F3F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{61B7688D-B956-4361-9D0E-ABCA6DCC5AB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - DataAccess", "3 - DataAccess", "{0E63CC81-D20F-4D6B-ABA7-22DA615FB551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{2D37CFD6-AC4B-46B8-907F-71E1A6A63929}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F17C8EE8-0B2E-4987-87D2-5C44DBCB7606}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCuttingConcerns", "CrossCuttingConcerns", "{5269666D-F2D3-4ED2-8050-0BE6349285AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCuttingConcerns", "CrossCuttingConcerns\CrossCuttingConcerns.csproj", "{4B8E3E0C-1CF2-43B0-91A9-C82FE8BAF23F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +29,27 @@ Global
 		{B0FA4B89-85A6-480E-8A2C-7C435C067BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0FA4B89-85A6-480E-8A2C-7C435C067BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0FA4B89-85A6-480E-8A2C-7C435C067BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D37CFD6-AC4B-46B8-907F-71E1A6A63929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D37CFD6-AC4B-46B8-907F-71E1A6A63929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D37CFD6-AC4B-46B8-907F-71E1A6A63929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D37CFD6-AC4B-46B8-907F-71E1A6A63929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17C8EE8-0B2E-4987-87D2-5C44DBCB7606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17C8EE8-0B2E-4987-87D2-5C44DBCB7606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17C8EE8-0B2E-4987-87D2-5C44DBCB7606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17C8EE8-0B2E-4987-87D2-5C44DBCB7606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8E3E0C-1CF2-43B0-91A9-C82FE8BAF23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8E3E0C-1CF2-43B0-91A9-C82FE8BAF23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8E3E0C-1CF2-43B0-91A9-C82FE8BAF23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8E3E0C-1CF2-43B0-91A9-C82FE8BAF23F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0FA4B89-85A6-480E-8A2C-7C435C067BDD} = {1F44352A-0D96-430A-A5D4-6D601874F3F8}
+		{2D37CFD6-AC4B-46B8-907F-71E1A6A63929} = {61B7688D-B956-4361-9D0E-ABCA6DCC5AB1}
+		{F17C8EE8-0B2E-4987-87D2-5C44DBCB7606} = {0E63CC81-D20F-4D6B-ABA7-22DA615FB551}
+		{4B8E3E0C-1CF2-43B0-91A9-C82FE8BAF23F} = {5269666D-F2D3-4ED2-8050-0BE6349285AB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA1B42D3-C664-47AD-8CF1-9F7CFBEDD56E}

@@ -1,0 +1,12 @@
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\bin\Debug\net6.0\CrossCuttingConcerns.deps.json
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\bin\Debug\net6.0\CrossCuttingConcerns.dll
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\bin\Debug\net6.0\CrossCuttingConcerns.pdb
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.csproj.AssemblyReference.cache
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.AssemblyInfoInputs.cache
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.AssemblyInfo.cs
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.csproj.CoreCompileInputs.cache
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.dll
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\refint\CrossCuttingConcerns.dll
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\CrossCuttingConcerns.pdb
+C:\Proyectos\CTC\WebAPI_NauticoSport\CrossCuttingConcerns\obj\Debug\net6.0\ref\CrossCuttingConcerns.dll

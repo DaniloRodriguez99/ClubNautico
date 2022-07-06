@@ -18,6 +18,9 @@ import { PartnerEliminateComponent } from './partner/partner-eliminate/partner-e
 import { PartnerDetailComponent } from './partner/partner-detail/partner-detail.component';
 import { PartnerListComponent } from './partner/partner-list/partner-list.component';
 
+//services
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -40,6 +43,9 @@ import { PartnerListComponent } from './partner/partner-list/partner-list.compon
     HomeComponent,
     PageNotFoundComponent,
     PartnerComponent
+  ],
+  providers: [
+    AuthenticationService
   ]
 })
 export class FeaturesModule { }
