@@ -20,6 +20,7 @@ import { PartnerListComponent } from './partner/partner-list/partner-list.compon
 
 //services
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { PartnerService } from 'src/app/services/partner.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
     PartnerComponent
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    PartnerService
   ]
 })
 export class FeaturesModule { }

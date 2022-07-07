@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PartnerService } from 'src/app/services/partner.service';
 
 @Component({
   selector: 'app-partner-detail',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnerDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor( 
+    private partenrService : PartnerService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  Data: string = "";
+
+  getPartner = () => {
+    let response = this.partenrService.getPartnerByPartnerId()
+    
   }
 
 }

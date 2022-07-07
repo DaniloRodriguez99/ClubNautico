@@ -12,13 +12,19 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login = (user: string, pass: string) => {
+    let loginRequest = (user: string, pass: string) => {
+  
+      let response =  this.http.post('https://localhost:7259/api/auth/login', {
+        userName: user,
+        password: pass
+      });
+      return response;
+    }
 
-    const options = { params: new HttpParams().set('userName', user) };
-    options.params.set('passsword',pass);
-
-    return this.http.post('https://localhost:7259/api/auth/login', {
-      userName: user,
-      password: pass
-    });
+    loginRequest(user, pass).subscribe((response:any) => {
+      sessionStorage.setItem('auth-token', response.token); 
+    })
   }
+
+  
 }

@@ -1,3 +1,4 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class PartnerService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getPartnerByPartnerId = () => {
+    let request = () => {
+      let response =  this.http.get('https://localhost:7259/api/partner', {});
+      return response;
+    }
+    return request().subscribe((response:any) => {
+      return response;
+    })
+  }
 }
+

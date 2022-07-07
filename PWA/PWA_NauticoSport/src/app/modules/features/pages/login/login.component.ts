@@ -28,12 +28,8 @@ export class LoginComponent implements OnInit {
       //this.name = params['name'];
     });
   }
+  
   login = () => {
-    this.authService.login(this.userInput.value, this.passInput.value)
-    .subscribe((response:any) => {
-      if(response) {
-        //
-      }
-    });;
+    this.authService.login(this.userInput.value, this.passInput.value);
   }
 }
