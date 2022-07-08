@@ -8,7 +8,7 @@ namespace CrossCuttingConcerns.Enums
 {
     public enum GenreEnum
     {
-        male = 0,
-        female = 1,
+        male = 1,
+        female = 2,
     }
 }

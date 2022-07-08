@@ -1,4 +1,5 @@
 ﻿using CrossCuttingConcerns.DTOs;
+using CrossCuttingConcerns.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,21 +13,32 @@ namespace WebAPI_NauticoSport.Controllers
     [Authorize]
     public class PartnerController : Controller
     {
-        private Domain.DomainFacade domainFacade = new Domain.DomainFacade();
+        private static IConfiguration _configuration;
+        private Domain.DomainFacade domainFacade = new Domain.DomainFacade(_configuration);
+
+        public PartnerController(IConfiguration config)
+        {
+            _configuration = config;
+        }
 
         [HttpGet]
-        public GetPartnerOut GetPartner()
+        public IActionResult GetPartner()
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             if (identity != null)
             {
-                return new GetPartnerOut()
-                {
-                    Email = identity.FindFirst("Password").Value,
-                    Username = identity.FindFirst("Username").Value
-                };
+                return Ok(
+                    new GetPartnerOut()
+                    {
+                        Username = identity.FindFirst("Username").Value,
+                        UserId = int.Parse(identity.FindFirst("UserId").Value),
+                        Genre = (GenreEnum)int.Parse(identity.FindFirst("Genre").Value),
+                        UserType = (UserTypeEnum)int.Parse(identity.FindFirst("UserType").Value),
+
+                    }
+                );
             }
-            return null;
+            return NotFound("Socio no encontrado");
         }
     }
 }

@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(48, 48, 48, 0.836) 0%, rgb(26, 26, 26) 100%),url("assets/images/piscina.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}

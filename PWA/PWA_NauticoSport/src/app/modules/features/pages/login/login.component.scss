@@ -1,0 +1,189 @@
+
+.mainContainer {
+    padding-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.loginFormContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    width: 25vw;
+    height: 80vh;
+    background-color: #3030307c;
+    border-color: #c41515;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+}
+.loginFormMobileContainer {
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+.loginForm {
+    display: grid;
+    justify-items: center;
+}
+.loginFormMobile {
+    display: none;
+}
+
+.brandIcon {
+    height: 20vh;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.acceptButton {
+    background-color: #186123;
+    color: #ffff;
+    width: 20vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    border: none;
+    border-radius: 100px;
+}
+
+@media (max-width: 1024px) { //notebook
+    .loginFormContainer {
+        display: flex;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        width: 30vw;
+        height: 80vh;
+    }
+    .brandIcon {
+        height: 20vh;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+    .acceptButton {
+        width: 20vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 768px) { //tablet
+    .loginFormContainer {
+        display: flex;
+        padding-top: 10vh;
+        padding-bottom: 10vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        width: 35vw;
+        height: 75vh;
+    }
+    .brandIcon {
+        height: 20vh;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+    .acceptButton {
+        width: 25vw;
+        margin-top: 2vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 425px) { //cellphone lg
+    
+    .loginFormMobileContainer {
+        display: flex;
+        padding-top: 2vh;
+        padding-bottom: 10vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        width: 70vw;
+        height: 80vh;
+    }
+
+    .loginFormContainer {
+        display: none;
+    }
+
+    .brandIcon {
+        height: 20vh;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+
+    .acceptButton {
+        width: 50vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 375px) { //cellphone md
+
+    .loginFormContainer {
+        display: none;
+    }
+    .loginFormMobileContainer {
+        display: flex;
+        padding-top: 2vh;
+        padding-bottom: 10vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        width: 90vw;
+        height: 80vh;
+    }
+    .brandIcon {
+        height: 20vh;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+    
+    .acceptButton {
+        width: 50vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 320px) { //cellphone sm
+    .loginFormContainer {
+        display: none;
+    }
+    .loginFormMobileContainer {
+        padding-top: 2vh;
+        padding-bottom: 10vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        width: 90vw;
+        height: 80vh;
+    }
+    .brandIcon {
+        height: 20vh;
+        text-align: center;
+        margin-bottom: 3vh;
+    }
+    
+    .acceptButton {
+        width: 50vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+
+    .loginForm_title {
+        font-size: 36px;
+        color: #ffff;
+    }
+}

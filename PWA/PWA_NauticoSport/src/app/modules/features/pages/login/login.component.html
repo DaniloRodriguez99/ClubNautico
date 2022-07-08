@@ -1,9 +1,27 @@
-<div>
-    <form action="">
-        <app-input-custom  #userInput placeholder="Usuario" type="text" value="Hola"></app-input-custom>
-        <br>
-        <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
-    </form>
+<div class="mainContainer">
+    <div class="loginFormContainer">
+        
+        <form class="loginForm" action="">
+            <img src="assets\images\logo-without-bg.png" class="brandIcon" alt="">
+            <app-input-custom  #userInput placeholder="Usuario" type="text"></app-input-custom>
+            <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
+            <button class="acceptButton" (click)="login()">Aceptar</button>
+        </form>
 
-    <button (click)="login()">Aceptar</button>
+    </div>
+
+    <div class="loginFormMobileContainer">
+        
+        <form class="loginForm" action="">
+            <img src="assets\images\logo-without-bg.png" class="brandIcon" alt="">
+            <span class="loginForm_title">Login</span>
+            <app-input-custom  #userInput placeholder="Usuario" type="text"></app-input-custom>
+            <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
+            <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
+        </form>
+
+    </div>
 </div>
+
+
+<span>{{operationResult}}</span>

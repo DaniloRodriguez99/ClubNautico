@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+//Pages
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PartnerComponent } from './pages/partner/partner.component';
+//Components
 import { PartnerDetailComponent } from './partner/partner-detail/partner-detail.component';
 import { PartnerEliminateComponent } from './partner/partner-eliminate/partner-eliminate.component';
 import { PartnerListComponent } from './partner/partner-list/partner-list.component';

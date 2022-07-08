@@ -1,12 +1,16 @@
 input {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 2vh;
+    padding-bottom:  2vh;
+    padding-left:  3vh;
+    padding-right:  3vh;
     border-radius: 100px;
     border:1px solid #E21818;
+    max-height: 1000px;
+    margin-bottom: 2vh;
+    color: rgb(255, 255, 255);
 
-    margin-bottom: 3vh;
+    background-color: #ffffff00;
+    width: 18vw;
 }
 
 ::placeholder {
@@ -15,5 +19,58 @@ input {
 
 input:focus {
     outline: none !important;
-    box-shadow: 0 0 10px #719ECE;
+    box-shadow: 0 0 10px #e2181871;
+}
+
+@media (max-width: 1024px) { //notebook
+    input {
+        width: 25vw;
+        border-radius: 100px;
+        
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+    }
+}
+
+@media (max-width: 768px) { //tablet
+    input {
+        width: 30vw;
+        border-radius: 100px;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+    }
+}
+
+@media (max-width: 425px) { //cellphone lg
+    input {
+        width: 60vw;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+    }
+}
+
+@media (max-width: 375px) { //cellphone md
+    input {
+        width: 70vw;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+    }
+}
+
+@media (max-width: 320px) { //cellphone sm
+    input {
+        width: 70vw;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+    }
 }

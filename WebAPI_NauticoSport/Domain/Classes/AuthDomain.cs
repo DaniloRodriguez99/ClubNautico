@@ -1,4 +1,5 @@
 ﻿using CrossCuttingConcerns.DTOs;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Domain.Classes
         }
         #endregion
 
-        private DataAccess.DataAccessFacade dataAccessFacade = new DataAccess.DataAccessFacade();
+        private DataAccess.DataAccessFacade dataAccessFacade = DataAccess.DataAccessFacade.Instance();
 
         public LoginOut login(LoginIn input)
         {
