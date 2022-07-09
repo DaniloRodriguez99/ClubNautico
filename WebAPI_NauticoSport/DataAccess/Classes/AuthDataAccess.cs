@@ -42,26 +42,36 @@ namespace DataAccess.Classes
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.userName;
-                    cmd.Parameters.Add("@Password", System.Data.SqlDbType.VarChar).Value = input.password;
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            var user = new User()
+                            var password = reader["Password"].ToString();
+
+                            bool verified = BCrypt.Net.BCrypt.Verify(input.password, password);
+
+                            if (verified)
                             {
-                                Username = reader["Username"].ToString(),
-                                UserId = int.Parse(reader["Id"].ToString()),
-                                Birthday = DateTime.Parse(reader["Birthday"].ToString()),
-                                CI = int.Parse(reader["CI"].ToString()),
-                                Email = reader["Email"].ToString(),
-                                Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
-                                UserType = (UserTypeEnum)int.Parse(reader["UserTypeId"].ToString()),
+                                var user = new User()
+                                {
+                                    Username = reader["Username"].ToString(),
+                                    UserId = int.Parse(reader["Id"].ToString()),
+                                    Birthday = DateTime.Parse(reader["Birthday"].ToString()),
+                                    CI = int.Parse(reader["CI"].ToString()),
+                                    Email = reader["Email"].ToString(),
+                                    Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
+                                    UserType = (UserTypeEnum)int.Parse(reader["UserTypeId"].ToString()),
 
-                            };
+                                };
 
-                            response.operationResult = OperationResult.success;
-                            response.user = user;
+                                response.operationResult = OperationResult.success;
+                                response.user = user;
+                            }
+                            else
+                            {
+                                response.operationResult = OperationResult.failure;
+                            }
                         }
                     }
                 }

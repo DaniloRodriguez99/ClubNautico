@@ -5,8 +5,10 @@
             <img src="assets\images\logo-without-bg.png" class="brandIcon" alt="">
             <app-input-custom  #userInput placeholder="Usuario" type="text"></app-input-custom>
             <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
-            <button class="acceptButton" (click)="login()">Aceptar</button>
         </form>
+
+        <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
+        <app-message [type]="'error'" [message]="errorMessage"></app-message>
 
     </div>
 
@@ -17,11 +19,10 @@
             <span class="loginForm_title">Login</span>
             <app-input-custom  #userInput placeholder="Usuario" type="text"></app-input-custom>
             <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
-            <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
         </form>
-
+        <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
+        <app-message [type]="'error'" [message]="errorMessage"></app-message>
+        <br>
     </div>
 </div>
 
-
-<span>{{operationResult}}</span>

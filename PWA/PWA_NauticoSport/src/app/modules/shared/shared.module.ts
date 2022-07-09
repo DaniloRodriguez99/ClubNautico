@@ -8,17 +8,24 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FeatureContainerComponent } from './feature-container/feature-container.component';
 import { InputCustomComponent } from './input-custom/input-custom.component';
+import { SitemapComponent } from './sitemap/sitemap.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [NavbarComponent,
     FeatureContainerComponent,
-    InputCustomComponent],
+    InputCustomComponent,
+    SitemapComponent,
+    MessageComponent],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
   exports: [NavbarComponent,
     FeatureContainerComponent,
-    InputCustomComponent]
+    InputCustomComponent,
+    SitemapComponent,
+    MessageComponent
+  ]
 })
 export class SharedModule { }

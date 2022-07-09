@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "F7uUBpSz6zRa1vcuzG3jnm1jL0txzZlyV1H6/5rHGTpy0bQPVde/YtNQUGHy+Z2B9EYOCk/jEvKq0U5dRvgOjQ==",
+  "dgSpecHash": "apl6c7+yS7gCicc/v+/Y/PNSojNErJqP5viTAtV+YmtZCQRRDvld4Z+1C8D4g5Eab+yz9fXZiXTRFWotD+vR3Q==",
   "success": true,
   "projectFilePath": "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\WebAPI_NauticoSport\\WebAPI_NauticoSport.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\danig\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\danig\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.6\\microsoft.aspnetcore.authentication.jwtbearer.6.0.6.nupkg.sha512",
     "C:\\Users\\danig\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\danig\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

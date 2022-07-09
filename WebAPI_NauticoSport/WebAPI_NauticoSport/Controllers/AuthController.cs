@@ -52,7 +52,7 @@ namespace WebAPI_NauticoSport.Controllers
 
                 return Ok(response);
             }
-            return NotFound("Usuario o contraseña incorrecta, vuelva a intentarlo mas tarde");
+            return NotFound("Usuario o contraseña incorrecta");
 
         }
     }

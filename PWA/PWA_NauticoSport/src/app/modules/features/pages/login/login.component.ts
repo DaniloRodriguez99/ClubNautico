@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService
   ) {}
 
+  errorMessage: string = "";
+
   operationResult: String = ''
 
   ngOnInit() {
@@ -30,6 +32,13 @@ export class LoginComponent implements OnInit {
   }
   
   login = () => {
-    this.authService.login(this.userInput.value, this.passInput.value);
+    this.authService.login(this.userInput.value, this.passInput.value).then(
+      (resolve) => {
+        resolve
+      },
+      (errorMessage) => {
+        this.errorMessage = errorMessage;
+      }
+    )
   }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "iaII9H6w+jzBHqZHOQJXIxldfo8Acaw0l/vKHvFJrQUIG5lF+FwGIlKZHW5vScIgCerKVKLsVMfJI3KsiahC1w==",
+  "dgSpecHash": "Nz9LqT0EfEbvEs9LR1OGQO8jNytcG5k3ydJzelWZDfOh4fg1MvUVHQFYJ2JQm+m6Iu3aFOCwuGB8NncdExnJ5Q==",
   "success": true,
   "projectFilePath": "C:\\Proyectos\\CTC\\WebAPI_NauticoSport\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\danig\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\danig\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\danig\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\danig\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
