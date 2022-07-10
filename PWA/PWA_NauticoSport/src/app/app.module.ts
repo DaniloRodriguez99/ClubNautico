@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -9,6 +9,13 @@ import { environment } from '../environments/environment';
 import { FeaturesModule } from './modules/features/features.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { AuthInterceptor } from './helper/auth.interceptor';
+import { TranslatePipe } from './pipes/translate.pipe';
+import { TranslateService } from './services/translate.service';
+
+export function setupTranslateServiceFactory(
+  service: TranslateService): Function {
+  return () => service.use('en');
+}
 
 @NgModule({
   declarations: [
@@ -25,12 +32,21 @@ import { AuthInterceptor } from './helper/auth.interceptor';
     HttpClientModule,
   ],
   providers: [
+    TranslateService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: setupTranslateServiceFactory,
+      deps: [
+        TranslateService
+      ],
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

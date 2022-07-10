@@ -1,0 +1,41 @@
+{
+    "common": {
+        "hi": "Hola"
+    },
+    "inputs": {
+        "name": {
+            "placeholder": "Nombre"
+        },
+        "lastname": {
+            "placeholder": "Apellido"
+        },
+        "genre": {
+            "options": {
+                "default": "Seleccionar Genero",
+                "female": "Femenino",
+                "male": "Masculino",
+                "other": "Otro"
+            }
+        },
+        "username": {
+            "placeholder": "Usuario"
+        },
+        "password": {
+            "placeholder": "Contraseña"
+        },
+        "repeatedPassword": {
+            "placeholder": "Repetir contraseña"
+        },
+        "email": {
+            "placeholder": "Correo electrónico"
+        },
+        "birthday": {
+            "placeholder": "Fecha de nacimiento"
+        },
+        "document_number": {
+            "placeholder": "Número de documento"
+        }
+
+    }
+
+}

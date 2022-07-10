@@ -30,11 +30,11 @@ export class AuthenticationService {
           })
         )
         .subscribe((response:any) => {
-          sessionStorage.setItem('auth-token', response.token); 
-          sessionStorage.setItem('username', response.user.username); 
-          sessionStorage.setItem('userId', response.user.userId); 
-          sessionStorage.setItem('ci', response.user.ci); 
-          sessionStorage.setItem('userType', response.user.userType); 
+          localStorage.setItem('auth-token', response.token); 
+          localStorage.setItem('username', response.user.username); 
+          localStorage.setItem('userId', response.user.userId); 
+          localStorage.setItem('ci', response.user.ci); 
+          localStorage.setItem('userType', response.user.userType); 
           this.onLoginChange.next(response)
           resolve(response)
         })

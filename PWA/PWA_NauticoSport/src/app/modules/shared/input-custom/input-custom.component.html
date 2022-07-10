@@ -1,2 +1,10 @@
 
-<input #myInput type="{{ type }}" placeholder="{{ placeholder }}" value="{{ value }}" (keyup)="change(myInput.value)">
+
+<div>
+    <input class="form-control mb-2 mr-sm-2" *ngIf="type != 'genre'" #myInput type="{{ type }}" placeholder="{{ placeholder | translate }}" value="{{ value }}" (keyup)="setValue(myInput.value)">
+
+    <select class="form-select" *ngIf="type == 'genre'" #myGenreSelector (change)="setValue(myGenreSelector.value)">
+        <option value="" selected disabled hidden>{{ select_genre_default_text | translate }}</option>
+        <option *ngFor="let item of genres " value="{{ item }}"> {{ item | translate }} </option>
+    </select>
+</div>

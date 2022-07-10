@@ -1,0 +1,39 @@
+{
+    "common": {
+        "hi": "Hello"
+    },
+    "inputs": {
+        "name": {
+            "placeholder": "Name"
+        },
+        "lastname": {
+            "placeholder": "Lastname"
+        },
+        "genre": {
+            "options": {
+                "default": "Select Genre",
+                "female": "Female",
+                "male": "Male",
+                "other": "Other"
+            }
+        },
+        "username": {
+            "placeholder": "Username"
+        },
+        "password": {
+            "placeholder": "Password"
+        },
+        "repeatedPassword": {
+            "placeholder": "Repeat password"
+        },
+        "email": {
+            "placeholder": "Email"
+        },
+        "birthday": {
+            "placeholder": "Birthday"
+        },
+        "document_number": {
+            "placeholder": "Document number"
+        }
+    }
+}

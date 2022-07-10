@@ -15,7 +15,7 @@
     width: 25vw;
     height: 80vh;
     background-color: #3030307c;
-    border-color: #c41515;
+    border-color: #ffffff;
     border-width: 1px;
     border-style: solid;
     border-radius: 20px;
@@ -135,6 +135,17 @@
         padding-bottom: 2vh;
         border: none;
     }
+    
+    .loginForm_title {
+        font-size: 36px;
+        color: #ffff;
+        display: inline;
+        justify-self: left;
+        border-bottom: inset;
+        width: 50vw;
+        margin-bottom: 2vh;
+        border-width: 1px;
+    }
 }
 
 @media (max-width: 375px) { //cellphone md
@@ -166,6 +177,17 @@
         padding-top: 2vh;
         padding-bottom: 2vh;
         border: none;
+    }
+    
+    .loginForm_title {
+        font-size: 36px;
+        color: #ffff;
+        display: inline;
+        justify-self: left;
+        border-bottom: inset;
+        width: 50vw;
+        margin-bottom: 2vh;
+        border-width: 1px;
     }
 }
 
@@ -201,6 +223,12 @@
     .loginForm_title {
         font-size: 36px;
         color: #ffff;
+        display: inline;
+        justify-self: left;
+        border-bottom: inset;
+        width: 50vw;
+        margin-bottom: 2vh;
+        border-width: 1px;
     }
     
 }

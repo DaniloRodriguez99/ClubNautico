@@ -3,23 +3,26 @@ input {
     padding-bottom:  2vh;
     padding-left:  3vh;
     padding-right:  3vh;
-    border-radius: 100px;
-    border:1px solid #E21818;
     max-height: 1000px;
     margin-bottom: 2vh;
+    
     color: rgb(255, 255, 255);
-
+    border-radius: 12px;
+    border:1px solid #ffffff;
     background-color: #ffffff00;
+
     width: 18vw;
 }
 
 ::placeholder {
-    color: #E21818;
+    color: #ffffff;
 }
 
 input:focus {
     outline: none !important;
-    box-shadow: 0 0 10px #e2181871;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
 }
 
 @media (max-width: 1024px) { //notebook
@@ -31,6 +34,11 @@ input:focus {
         padding-bottom:  1.5vh;
         padding-left:  3vh;
         padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }
 
@@ -42,6 +50,11 @@ input:focus {
         padding-bottom:  1.5vh;
         padding-left:  3vh;
         padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }
 
@@ -52,6 +65,11 @@ input:focus {
         padding-bottom:  1.5vh;
         padding-left:  3vh;
         padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }
 
@@ -62,6 +80,11 @@ input:focus {
         padding-bottom:  1.5vh;
         padding-left:  3vh;
         padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }
 
@@ -72,5 +95,10 @@ input:focus {
         padding-bottom:  1.5vh;
         padding-left:  3vh;
         padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }

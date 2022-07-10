@@ -3,7 +3,7 @@
     <app-navbar></app-navbar>
     <div class="container-fluid">
         <div class="row">
-            <app-sitemap class="d-none" [ngClass]="{'col-2 d-md-block': userType == '1', 'd-md-none': userType != '1'}"></app-sitemap>
+            <app-sitemap class="d-none" [ngClass]="{'col-2 d-md-block': userType == '1', 'd-md-none': userType == ''}"></app-sitemap>
             <div class="col-12" [ngClass]="{'col-md-10': userType == '1', 'col-12': userType != '1'}">
                 <router-outlet></router-outlet>
             </div> 

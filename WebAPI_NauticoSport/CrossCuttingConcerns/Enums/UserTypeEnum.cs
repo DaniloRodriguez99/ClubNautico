@@ -8,6 +8,8 @@ namespace CrossCuttingConcerns.Enums
 {
     public enum UserTypeEnum
     {
-        common = 0,
+        admin = 1,
+        partner = 2,
+        teacher = 3
     }
 }
