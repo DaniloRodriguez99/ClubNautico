@@ -2,6 +2,9 @@
     "common": {
         "hi": "Hello"
     },
+    "buttons": {
+        "login": "Login"
+    },
     "inputs": {
         "name": {
             "placeholder": "Name"

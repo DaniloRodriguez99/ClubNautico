@@ -20,18 +20,10 @@
     border-style: solid;
     border-radius: 20px;
 }
-.loginFormMobileContainer {
-    display: none;
-    justify-content: center;
-    align-content: center;
-}
 
 .loginForm {
     display: grid;
     justify-items: center;
-}
-.loginFormMobile {
-    display: none;
 }
 
 .brandIcon {
@@ -50,6 +42,10 @@
     max-height: 70px;
     border: none;
     border-radius: 100px;
+}
+
+.acceptButton:active {
+    background-color: #12491a;
 }
 
 @media (max-width: 1024px) { //notebook
@@ -105,10 +101,10 @@
 
 @media (max-width: 425px) { //cellphone lg
     .mainContainer {
-        padding-top: 10vh;
+        padding-top: 2vh;
     }
 
-    .loginFormMobileContainer {
+    .loginFormContainer {
         display: grid;
         justify-items: center;
         padding-top: 2vh;
@@ -117,10 +113,12 @@
         padding-right: 2vh;
         width: 70vw;
         height: 80vh;
-    }
-
-    .loginFormContainer {
-        display: none;
+        
+        background-color: #30303000;
+        border-color: #ffffff00;
+        border-width: 0px;
+        border-style: solid;
+        border-radius: 0px;
     }
 
     .brandIcon {
@@ -150,13 +148,10 @@
 
 @media (max-width: 375px) { //cellphone md
     .mainContainer {
-        padding-top: 10vh;
+        padding-top: 2vh;
     }
 
     .loginFormContainer {
-        display: none;
-    }
-    .loginFormMobileContainer {
         display: grid;
         justify-items: center;
         padding-top: 2vh;
@@ -193,13 +188,10 @@
 
 @media (max-width: 320px) { //cellphone sm
     .mainContainer {
-        padding-top: 10vh;
+        padding-top: 2vh;
     }
 
     .loginFormContainer {
-        display: none;
-    }
-    .loginFormMobileContainer {
         padding-top: 2vh;
         padding-bottom: 10vh;
         padding-left: 2vh;

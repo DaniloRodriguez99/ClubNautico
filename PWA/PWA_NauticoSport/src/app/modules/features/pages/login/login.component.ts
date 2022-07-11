@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   
   constructor(
     private route: ActivatedRoute,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private router: Router
   ) {}
 
   errorMessage: string = "";
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
   login = () => {
     this.authService.login(this.userInput.value, this.passInput.value).then(
       (resolve) => {
-        resolve
+        this.router.navigate(["/home"])
       },
       (errorMessage) => {
         this.errorMessage = errorMessage;

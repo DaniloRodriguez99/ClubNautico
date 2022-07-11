@@ -43,7 +43,6 @@ export class InputCustomComponent implements OnInit {
     })
     return mappedGenres;
   }
-  
 
   setValue = (value: any) => {
     this.value = value;

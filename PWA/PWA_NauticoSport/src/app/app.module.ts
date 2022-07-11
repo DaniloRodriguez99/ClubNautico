@@ -11,10 +11,11 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AuthInterceptor } from './helper/auth.interceptor';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { TranslateService } from './services/translate.service';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 
 export function setupTranslateServiceFactory(
   service: TranslateService): Function {
-  return () => service.use('en');
+  return () => service.use('es');
 }
 
 @NgModule({
@@ -45,7 +46,9 @@ export function setupTranslateServiceFactory(
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
   bootstrap: [AppComponent],
 })

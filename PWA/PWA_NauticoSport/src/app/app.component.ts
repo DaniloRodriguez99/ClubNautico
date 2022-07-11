@@ -17,9 +17,12 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.authService.onLoginChange.subscribe((data: any) => {
-      this.userType = data.user.userType;
+      if(data != null) {
+        this.userType = data.user.userType;
+      } else {
+        this.userType = data;
+      }
     })
-    console.log(this.translateService.data)
   }
   
   title = 'PWA_NauticoSport';

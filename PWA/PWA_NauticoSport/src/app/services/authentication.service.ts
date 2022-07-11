@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject, Subscription, throwError } from 'rxjs';
-import { catchError, map, retry } from 'rxjs/operators';
+import { Observable, Subject, Subscription, throwError, of } from 'rxjs';
+import { catchError, map, retry, delay } from 'rxjs/operators';
 import {HttpParams} from "@angular/common/http";
+import { JwtHelperService, JWT_OPTIONS } from "@auth0/angular-jwt";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService, private router: Router) { }
+
+  timeout = 0;
+  tokenSubscription = new Subscription();
 
   public onLoginChange = new Subject();
 
@@ -30,11 +35,7 @@ export class AuthenticationService {
           })
         )
         .subscribe((response:any) => {
-          localStorage.setItem('auth-token', response.token); 
-          localStorage.setItem('username', response.user.username); 
-          localStorage.setItem('userId', response.user.userId); 
-          localStorage.setItem('ci', response.user.ci); 
-          localStorage.setItem('userType', response.user.userType); 
+          this.storeUserData(response);
           this.onLoginChange.next(response)
           resolve(response)
         })
@@ -42,5 +43,33 @@ export class AuthenticationService {
     )
   }
 
+  logout() {
+    this.tokenSubscription.unsubscribe();
+    localStorage.clear();
+    this.router.navigate(["/login"])
+    this.onLoginChange.next(null);
+  }
+
+  storeUserData = (data: any) => {
+    let date = this.jwtHelper.getTokenExpirationDate(data.token);
+    if(date != null) 
+    {
+      this.timeout = date.valueOf() - new Date().valueOf()
+    }
+
+    localStorage.setItem('access_token', data.token); 
+    localStorage.setItem('username', data.user.username); 
+    localStorage.setItem('userId', data.user.userId); 
+    localStorage.setItem('ci', data.user.ci); 
+    localStorage.setItem('userType', data.user.userType); 
+
+    this.expirationCounter(this.timeout)
+  }
   
+  expirationCounter(timeout: any) {
+    this.tokenSubscription.unsubscribe();
+    this.tokenSubscription = of(null).pipe(delay(timeout)).subscribe((expired) => {
+      this.logout();
+    })
+  }
 }

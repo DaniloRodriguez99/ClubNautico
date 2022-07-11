@@ -1,28 +1,13 @@
 <div class="mainContainer">
     <div class="loginFormContainer">
-        
-        <form class="loginForm" action="">
-            <img src="assets\images\logo-without-bg.png" class="brandIcon" alt="">
-            <app-input-custom  #userInput placeholder="Usuario" type="text"></app-input-custom>
-            <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
-        </form>
-
-        <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
-        <app-message [type]="'error'" [message]="errorMessage"></app-message>
-
-    </div>
-
-    <div class="loginFormMobileContainer">
-        
         <form class="loginForm" action="">
             <img src="assets\images\logo-without-bg.png" class="brandIcon" alt="">
             <span class="loginForm_title">Login</span>
-            <app-input-custom  #userInput placeholder="Usuario" type="text"></app-input-custom>
-            <app-input-custom  #passInput placeholder="Contraseña" type="password"></app-input-custom>
+            <app-input-custom  #userInput placeholder="inputs.username.placeholder" type="text"></app-input-custom>
+            <app-input-custom  #passInput placeholder="inputs.password.placeholder" type="password"></app-input-custom>
         </form>
         <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
         <app-message [type]="'error'" [message]="errorMessage"></app-message>
-        <br>
     </div>
 </div>
 
