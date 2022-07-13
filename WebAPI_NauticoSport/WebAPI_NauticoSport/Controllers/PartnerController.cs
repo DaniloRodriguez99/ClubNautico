@@ -21,7 +21,7 @@ namespace WebAPI_NauticoSport.Controllers
             _configuration = config;
         }
 
-        [HttpGet]
+        [HttpGet("partner")]
         public IActionResult GetPartner()
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
@@ -39,6 +39,12 @@ namespace WebAPI_NauticoSport.Controllers
                 );
             }
             return NotFound("Socio no encontrado");
+        }
+
+        [HttpPost("signup")]
+        public IActionResult PartnerSignUp([FromBody] PartnerSignUpIn input) 
+        {
+            return Ok(input);
         }
     }
 }

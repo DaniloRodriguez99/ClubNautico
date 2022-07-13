@@ -14,9 +14,9 @@ import { SharedModule } from '../shared/shared.module';
 //Components
 import { PartnerRegisterComponent } from './partner/partner-register/partner-register.component';
 import { PartnerModifyComponent } from './partner/partner-modify/partner-modify.component';
-import { PartnerEliminateComponent } from './partner/partner-eliminate/partner-eliminate.component';
 import { PartnerDetailComponent } from './partner/partner-detail/partner-detail.component';
 import { PartnerListComponent } from './partner/partner-list/partner-list.component';
+import { PartnerDeleteComponent } from './partner/partner-delete/partner-delete.component';
 
 //services
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -30,9 +30,9 @@ import { PartnerService } from 'src/app/services/partner.service';
     PartnerRegisterComponent,
     PartnerComponent,
     PartnerModifyComponent,
-    PartnerEliminateComponent,
     PartnerDetailComponent,
-    PartnerListComponent
+    PartnerListComponent,
+    PartnerDeleteComponent
   ],
   imports: [
     CommonModule,

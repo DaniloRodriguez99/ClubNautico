@@ -43,7 +43,7 @@ namespace WebAPI_NauticoSport.Controllers
                             _configuration["Jwt:Issuer"],
                             _configuration["Jwt:Audience"],
                             claims,
-                            expires: DateTime.Now.AddSeconds(20),
+                            expires: DateTime.Now.AddMinutes(15),
                             signingCredentials: signIn
                 );
 

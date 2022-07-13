@@ -1,10 +1,29 @@
 
 
-<div>
-    <input class="form-control mb-2 mr-sm-2" *ngIf="type != 'genre'" #myInput type="{{ type }}" placeholder="{{ placeholder | translate }}" value="{{ value }}" (keyup)="setValue(myInput.value)">
+<div class="d-flex justify-content-center w-100">
+    <label class="w-100">
+        <span>{{ label_text | translate }}</span>
 
-    <select class="form-select" *ngIf="type == 'genre'" #myGenreSelector (change)="setValue(myGenreSelector.value)">
-        <option value="" selected disabled hidden>{{ select_genre_default_text | translate }}</option>
-        <option *ngFor="let item of genres " value="{{ item }}"> {{ item | translate }} </option>
-    </select>
+        <input 
+            class="form-control mb-2 mr-sm-2"
+            *ngIf="!isSelect" 
+            #myInput 
+            type="{{ type }}" 
+            value="{{ value }}" 
+            (change)="setValue(myInput.value)">
+        
+        <select 
+            class="pl-5" 
+            *ngIf="isSelect" 
+            #mySelector 
+            (change)="setValue(mySelector.value)">
+            <option 
+                selected 
+                disabled 
+                hidden>{{ select_default_text | translate }}</option>
+            <option 
+                *ngFor="let item of select_items" 
+                value="{{ item.value }}"> {{ item.text | translate }} </option>
+        </select>
+    </label>
 </div>

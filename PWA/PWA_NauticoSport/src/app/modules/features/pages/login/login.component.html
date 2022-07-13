@@ -2,11 +2,11 @@
     <div class="loginFormContainer">
         <form class="loginForm" action="">
             <img src="assets\images\logo-without-bg.png" class="brandIcon" alt="">
-            <span class="loginForm_title">Login</span>
-            <app-input-custom  #userInput placeholder="inputs.username.placeholder" type="text"></app-input-custom>
-            <app-input-custom  #passInput placeholder="inputs.password.placeholder" type="password"></app-input-custom>
+            <span class="loginForm_title">{{ 'pages.login.loginForm.title' | translate }}</span>
+            <app-input-custom class="input" #userInput label_text="inputs.username.placeholder" type="text"></app-input-custom>
+            <app-input-custom class="input" #passInput label_text="inputs.password.placeholder" type="password"></app-input-custom>
         </form>
-        <button class="acceptButton" (click)="login()">Iniciar Sesion</button>
+        <button class="accept button_custom rounded" (click)="login()">{{ 'buttons.signin' | translate }}</button>
         <app-message [type]="'error'" [message]="errorMessage"></app-message>
     </div>
 </div>

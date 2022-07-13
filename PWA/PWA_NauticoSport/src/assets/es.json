@@ -1,9 +1,28 @@
 {
+    "pages": {
+        "login": {
+            "loginForm": {
+                "title": "Ingresar"
+            }
+        },
+        "partner": {
+            "register": {
+                
+            },
+            "detail": {},
+            "delete": {},
+            "list": {},
+            "modify": {}
+        }
+    },
     "common": {
         "hi": "Hola"
     },
     "buttons": {
-        "login": "Iniciar Sesion"
+        "signin": "Iniciar Sesion",
+        "signup": "Registrar",
+        "cancel": "Cancelar",
+        "accept": "Aceptar"
     },
     "inputs": {
         "name": {
@@ -12,12 +31,21 @@
         "lastname": {
             "placeholder": "Apellido"
         },
-        "genre": {
+        "genres": {
+            "placeholder": "Genero",
             "options": {
                 "default": "Seleccionar Genero",
                 "female": "Femenino",
                 "male": "Masculino",
                 "other": "Otro"
+            }
+        },
+        "documentTypes": {
+            "placeholder": "Tipo de documento",
+            "options": {
+                "default": "Seleccionar Tipo",
+                "dni": "Cedula de identidad",
+                "passport": "Pasaporte"
             }
         },
         "username": {

@@ -7,3 +7,82 @@ body {
     background-position: center;
     background-attachment: fixed;
 }
+
+.button_custom {
+    width: 20vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    height: 8vh;
+    max-height: 70px;
+    border: none;
+}
+
+.accept {
+    background-color: #186123;
+    color: #ffff;
+}
+
+.accept:active {
+    background-color: #12491a;
+}
+
+.cancel {
+    background-color: #972121;
+    color: #ffff;
+}
+
+.cancel:active {
+    background-color: #6e1212;
+}
+
+.rounded {
+    border-radius: 100vw !important;
+}
+
+@media (max-width: 1024px) { //notebook
+    .button_custom {
+        width: 20vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        height: 10vh;
+        max-height: 70px;
+        border: none;
+    }
+}
+
+@media (max-width: 768px) { //tablet
+    .button_custom {
+        width: 25vw;
+        margin-top: 2vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 425px) { //cellphone lg
+    .button_custom {
+        width: 50vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 375px) { //cellphone md
+    .button_custom {
+        width: 50vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}
+
+@media (max-width: 320px) { //cellphone sm
+    .button_custom {
+        width: 50vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        border: none;
+    }
+}

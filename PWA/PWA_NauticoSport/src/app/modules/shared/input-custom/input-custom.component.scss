@@ -11,10 +11,11 @@ input {
     border:1px solid #ffffff;
     background-color: #ffffff00;
 
-    width: 18vw;
+    width: 100%;
+    color-scheme: dark;
 }
 
-::placeholder {
+input::placeholder {
     color: #ffffff;
 }
 
@@ -25,9 +26,76 @@ input:focus {
     color: rgb(255, 255, 255);
 }
 
+input:hover {
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+select {
+    display: block;
+
+    padding-top: 2vh;
+    padding-bottom:  2vh;
+    padding-left:  3vh;
+    padding-right:  3vh;
+    max-height: 60px;
+    margin-bottom: 2vh;
+        
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    border:1px solid #ffffff;
+    background-color: #ffffff00;
+    
+    width: 100%;
+
+    option {
+        background-color: #000000;
+        color: rgb(255, 255, 255);
+    }
+    option:active{
+        background-color: #fc0000;
+        color: rgb(255, 255, 255);
+    }
+}
+
+select:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+}
+
+select:hover {
+    cursor: pointer;
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+}
+
+
+label {
+    color:rgb(211, 211, 211);
+    span {
+        display: block;
+        padding-left: 1vw;
+    }
+}
+
 @media (max-width: 1024px) { //notebook
     input {
-        width: 25vw;
         border-radius: 100px;
         
         padding-top: 1.5vh;
@@ -44,7 +112,6 @@ input:focus {
 
 @media (max-width: 768px) { //tablet
     input {
-        width: 30vw;
         border-radius: 100px;
         padding-top: 1.5vh;
         padding-bottom:  1.5vh;
@@ -60,7 +127,18 @@ input:focus {
 
 @media (max-width: 425px) { //cellphone lg
     input {
-        width: 60vw;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
+
+    select {
         padding-top: 1.5vh;
         padding-bottom:  1.5vh;
         padding-left:  3vh;
@@ -75,7 +153,18 @@ input:focus {
 
 @media (max-width: 375px) { //cellphone md
     input {
-        width: 70vw;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
+
+    select {
         padding-top: 1.5vh;
         padding-bottom:  1.5vh;
         padding-left:  3vh;
@@ -90,7 +179,18 @@ input:focus {
 
 @media (max-width: 320px) { //cellphone sm
     input {
-        width: 70vw;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
+
+    select {
         padding-top: 1.5vh;
         padding-bottom:  1.5vh;
         padding-left:  3vh;

@@ -1,0 +1,32 @@
+.page_container {
+    background-color: #303030;
+    border-radius: 8px;
+    border-color: #803F3F;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.mainContainer{
+    border-color: #803F3F;
+    border-width: 1px;
+}
+
+@media (max-width: 1024px) { //notebook
+    .page_container {
+        background-color: #30303000;
+        border-color: #ffffff00;
+    }
+    
+}
+
+@media (max-width: 768px) { //tablet
+}
+
+@media (max-width: 425px) { //cellphone lg
+}
+
+@media (max-width: 375px) { //cellphone md
+}
+
+@media (max-width: 320px) { //cellphone sm
+}

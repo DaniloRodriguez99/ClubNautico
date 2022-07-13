@@ -1,0 +1,27 @@
+form {
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+
+@media (max-width: 1024px) { //notebook
+    form {
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+}
+
+@media (max-width: 768px) { //tablet
+}
+
+@media (max-width: 425px) { //cellphone lg
+}
+
+@media (max-width: 375px) { //cellphone md
+}
+
+@media (max-width: 320px) { //cellphone sm
+    form {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}

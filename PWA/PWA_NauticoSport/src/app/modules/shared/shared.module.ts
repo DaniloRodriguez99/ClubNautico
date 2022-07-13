@@ -18,7 +18,7 @@ import { TranslatePipe } from 'src/app/pipes/translate.pipe';
     InputCustomComponent,
     SitemapComponent,
     MessageComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   imports: [
     CommonModule,
@@ -28,7 +28,8 @@ import { TranslatePipe } from 'src/app/pipes/translate.pipe';
     FeatureContainerComponent,
     InputCustomComponent,
     SitemapComponent,
-    MessageComponent
+    MessageComponent,
+    TranslatePipe
   ],
   providers: [
   ]

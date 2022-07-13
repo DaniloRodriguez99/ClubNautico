@@ -5,6 +5,10 @@
     align-content: center;
 }
 
+.input {
+    width: 20vw;
+}
+
 .loginFormContainer {
     display: grid;
     justify-items: center;
@@ -32,20 +36,8 @@
     margin-bottom: 3vh;
 }
 
-.acceptButton {
-    background-color: #186123;
-    color: #ffff;
-    width: 20vw;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    height: 8vh;
-    max-height: 70px;
-    border: none;
-    border-radius: 100px;
-}
-
-.acceptButton:active {
-    background-color: #12491a;
+.loginForm_title {
+    display: none;
 }
 
 @media (max-width: 1024px) { //notebook
@@ -64,13 +56,8 @@
         text-align: center;
         margin-bottom: 3vh;
     }
-    .acceptButton {
+    .input {
         width: 20vw;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        height: 10vh;
-        max-height: 70px;
-        border: none;
     }
 }
 
@@ -90,12 +77,11 @@
         text-align: center;
         margin-bottom: 3vh;
     }
-    .acceptButton {
+    .input {
         width: 25vw;
-        margin-top: 2vh;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        border: none;
+    }
+    .loginForm_title {
+        display: none;
     }
 }
 
@@ -127,17 +113,14 @@
         margin-bottom: 3vh;
     }
 
-    .acceptButton {
-        width: 50vw;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        border: none;
+    .input {
+        width: 65vw;
     }
     
     .loginForm_title {
+        display: inline;
         font-size: 36px;
         color: #ffff;
-        display: inline;
         justify-self: left;
         border-bottom: inset;
         width: 50vw;
@@ -167,17 +150,14 @@
         margin-bottom: 3vh;
     }
     
-    .acceptButton {
-        width: 50vw;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        border: none;
+    .input {
+        width: 70vw;
     }
     
     .loginForm_title {
+        display: inline;
         font-size: 36px;
         color: #ffff;
-        display: inline;
         justify-self: left;
         border-bottom: inset;
         width: 50vw;
@@ -205,17 +185,13 @@
         margin-bottom: 3vh;
     }
     
-    .acceptButton {
-        width: 50vw;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        border: none;
+    .input {
+        width: 70vw;
     }
 
     .loginForm_title {
         font-size: 36px;
         color: #ffff;
-        display: inline;
         justify-self: left;
         border-bottom: inset;
         width: 50vw;

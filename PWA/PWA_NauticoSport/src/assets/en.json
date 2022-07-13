@@ -1,9 +1,24 @@
 {
+    "pages": {
+        "login": {
+            "loginForm": {
+                "title": "Login"
+            }
+        },
+        "partner": {
+            "register": {
+                
+            }
+        }
+    },
     "common": {
         "hi": "Hello"
     },
     "buttons": {
-        "login": "Login"
+        "signin": "Login",
+        "signup": "Register",
+        "cancel": "Cancel",
+        "accept": "Accept"
     },
     "inputs": {
         "name": {
@@ -12,12 +27,21 @@
         "lastname": {
             "placeholder": "Lastname"
         },
-        "genre": {
+        "genres": {
+            "placeholder": "Genre",
             "options": {
                 "default": "Select Genre",
                 "female": "Female",
                 "male": "Male",
                 "other": "Other"
+            }
+        },
+        "documentTypes": {
+            "placeholder": "Document Type",
+            "options": {
+                "default": "Select Type",
+                "dni": "Identity Card",
+                "passport": "Passport"
             }
         },
         "username": {
