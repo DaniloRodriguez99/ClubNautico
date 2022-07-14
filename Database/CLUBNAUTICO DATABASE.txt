@@ -1,0 +1,260 @@
+
+Create Table UserType(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Type VARCHAR(20) NOT NULL
+);
+
+Create Table Genre(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(20) UNIQUE NOT NULL
+);
+
+Create Table Users(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Username VARCHAR(50) NOT NULL,
+Password VARCHAR(255) NOT NULL,
+CI INT UNIQUE NOT NULL,
+Email VARCHAR(50) NOT NULL,
+GenreId INT FOREIGN KEY REFERENCES Genre(Id),
+ProfileIMG VARBINARY(MAX) NOT NULL,
+Birthday DATETIME NOT NULL,
+CreationDate DATETIME NOT NULL,
+UserTypeId INT FOREIGN KEY REFERENCES UserType(Id),
+);
+
+Create Table Feature(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(200) NOT NULL,
+Parent INT FOREIGN KEY REFERENCES Feature(ID),
+MenuOrder INT NOT NULL
+);
+
+Create Table FeatureByUserType(
+UserTypeId INT FOREIGN KEY REFERENCES UserType(Id),
+FeatureId INT FOREIGN KEY REFERENCES Feature(Id),
+CONSTRAINT PK_FeatureByUser PRIMARY KEY (UserTypeId,FeatureId)
+);
+	
+Create Table Professor(
+Id INT FOREIGN KEY REFERENCES Users(Id),
+CellPhone INT,
+Description VARCHAR(200),
+CONSTRAINT PK_Professor PRIMARY KEY (Id)
+);
+
+Create Table PartnerType(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Type VARCHAR(20) UNIQUE NOT NULL
+);
+
+Create Table Partner(
+Id INT FOREIGN KEY REFERENCES Users(Id),
+Type INT FOREIGN KEY REFERENCES PartnerType(Id),
+CONSTRAINT PK_Partner PRIMARY KEY (Id)
+);
+
+Create table Administrator(
+Id INT FOREIGN KEY REFERENCES Users(Id) NOT NULL,
+CONSTRAINT PK_Administrator PRIMARY KEY (Id)
+);
+
+Create table Category(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(20) UNIQUE NOT NULL,
+);
+
+Create Table Activity(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(200) NOT NULL,
+Category INT FOREIGN KEY REFERENCES Category(Id) NOT NULL,
+Description varchar(200) NOT NULL
+);
+
+Create Table ActivityByProfessor(
+Id INT IDENTITY(1,1),
+Professor INT FOREIGN KEY REFERENCES Professor(Id) NOT NULL,
+Activity INT FOREIGN KEY REFERENCES Activity(Id) NOT NULL,
+CONSTRAINT PK_ActivityByProfessor PRIMARY KEY(Professor,Activity)
+);
+
+Create Table UnitOfMeasurement(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(20) UNIQUE NOT NULL,
+Shortcut VARCHAR(10) UNIQUE NOT NULL
+);
+
+Create Table MetricType(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(20) NOT NULL,
+Description VARCHAR(50) NOT NULL,
+UnitOfMeasurementId INT FOREIGN KEY REFERENCES UnitOfMeasurement(Id) NOT NULL,
+);
+
+Create Table UnitOfMeasurementByMetricType(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+UnitOfMeasurementId INT FOREIGN KEY REFERENCES UnitOfMeasurement(Id) NOT NULL,
+MetricTypeId INT FOREIGN KEY REFERENCES MetricType(Id) NOT NULL,
+);
+
+Create Table Metric(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+CreationDate DATETIME NOT NULL,
+PartnerId INT FOREIGN KEY REFERENCES Partner(Id) NOT NULL,
+ActivityId INT FOREIGN KEY REFERENCES Activity(Id) NOT NULL,
+MetricTypeId INT FOREIGN KEY REFERENCES MetricType(Id) NOT NULL,
+);
+
+Create Table MetricValues(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+UnitOfMeasurementId INT FOREIGN KEY REFERENCES UnitOfMeasurement(Id) NOT NULL,
+Value INT NOT NULL,
+MetricId INT FOREIGN KEY REFERENCES Metric(Id) NOT NULL,
+);
+
+Create Table Stat(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+CreationDate DATETIME NOT NULL,
+Creator INT FOREIGN KEY REFERENCES Users(Id)
+);
+
+Create Table MetricByStat(
+Id INT NOT NULL,
+StatId INT FOREIGN KEY REFERENCES Stat(Id) NOT NULL,
+MetricId INT FOREIGN KEY REFERENCES Metric(Id) NOT NULL,
+CONSTRAINT PK_MetricByStat PRIMARY KEY (Id,MetricId,StatId)
+);
+
+Create Table EventType(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Name VARCHAR(50) UNIQUE NOT NULL
+);
+
+Create Table Event(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+EventTypeId INT FOREIGN KEY REFERENCES EventType(Id) NOT NULL,
+CreationDate DATETIME NOT NULL,
+Hour VARCHAR(50) NOT NULL
+);
+
+Create Table ParticipantsByEvent(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+EventId INT FOREIGN KEY REFERENCES Event(Id) NOT NULL,
+ParticipantId INT FOREIGN KEY REFERENCES Partner(Id) NOT NULL,
+);
+
+Create Table ActivityClass(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+ProfessorId INT FOREIGN KEY REFERENCES Professor(Id) NOT NULL,
+ActivityId INT FOREIGN KEY REFERENCES Activity(Id) NOT NULL,
+);
+
+Create Table ListOfStudentByActivityClass(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+ClassId INT FOREIGN KEY REFERENCES ActivityClass(Id),
+StudentId INT FOREIGN KEY REFERENCES Partner(Id),
+);
+
+Create Table ClassSchedules(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+ClassId INT FOREIGN KEY REFERENCES ActivityClass(Id) NOT NULL,
+Schedule Varchar(100) NOT NULL,
+);
+
+
+Create Table Notice(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+CreatorId INT FOREIGN KEY REFERENCES Administrator(Id) NOT NULL,
+Title VARCHAR(50) NOT NULL,
+Body VARCHAR(50) NOT NULL,
+DateFrom DATETIME NOT NULL,
+DateTo DATETIME NOT NULL,
+ImportanceLevel INT NOT NULL
+);
+
+Create Table Status(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Status VARCHAR(20) UNIQUE NOT NULL
+);
+
+Create Table Fee(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+PartnerId INT FOREIGN KEY REFERENCES Partner(Id) NOT NULL,
+AdministratorId INT FOREIGN KEY REFERENCES Administrator(Id) NOT NULL,
+CreationDate DATETIME NOT NULL,
+Amount INT NOT NULL,
+PaymentMethod VARCHAR(50) NOT NULL,
+ImportanceLevel INT NOT NULL,
+StatusId INT FOREIGN KEY REFERENCES Status(Id) NOT NULL
+);
+
+
+Create Table Substitution(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+CreatorId INT FOREIGN KEY REFERENCES Administrator(Id) NOT NULL,
+ActivityClassId INT FOREIGN KEY REFERENCES ActivityClass(Id) NOT NULL,
+CreationDate DATETIME NOT NULL,
+StatusId INT FOREIGN KEY REFERENCES Status(Id) NOT NULL
+);
+
+
+Create Table SubstitutionRequest(
+Id INT IDENTITY(1,1) PRIMARY KEY,
+EmitterId INT FOREIGN KEY REFERENCES Professor(Id) NOT NULL,
+StatusId INT FOREIGN KEY REFERENCES Status(Id) NOT NULL,
+CreationDate DATETIME NOT NULL,
+SubstitutionId INT FOREIGN KEY REFERENCES Substitution(Id) NOT NULL,
+ApproverId INT FOREIGN KEY REFERENCES Administrator(Id) NOT NULL
+);
+
+CREATE TABLE [dbo].[SiteMapPagesByFeature](
+	FeatureId INT FOREIGN KEY REFERENCES Feature(Id) NOT NULL,
+	PageId INT NOT NULL,
+ CONSTRAINT PK_SiteMapPagesByFeature PRIMARY KEY (FeatureId,PageId)
+)
+
+CREATE TABLE [dbo].[SiteMapPages](
+	Id INT IDENTITY(1,1) Primary Key NOT NULL,
+	PageKey VARCHAR(120) NOT NULL,
+	ParentId INT REFERENCES SiteMapPages(Id) NULL,
+	Ordinal INT NOT NULL);
+
+
+
+
+----Stored Procedures----
+
+CREATE PROCEDURE userLogin
+
+@Username varchar(50)
+
+AS
+BEGIN 
+
+SELECT * FROM Users WHERE Username = @Username
+
+END
+
+
+
+
+----Stored Procedures----
+
+CREATE PROCEDURE getFeaturesByUser
+
+@Username varchar(50)
+
+AS
+BEGIN 
+
+
+
+SELECT * FROM FeatureByUserType fbut inner join Users u on u.UserTypeId = fbut.UserTypeId  WHERE u.Username = @Username
+
+
+END
+
+
+
+
+
+
