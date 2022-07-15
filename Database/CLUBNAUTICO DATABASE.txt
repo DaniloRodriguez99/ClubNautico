@@ -22,12 +22,14 @@ CreationDate DATETIME NOT NULL,
 UserTypeId INT FOREIGN KEY REFERENCES UserType(Id),
 );
 
+
 Create Table Feature(
 Id INT IDENTITY(1,1) PRIMARY KEY,
 Name VARCHAR(200) NOT NULL,
-Parent INT FOREIGN KEY REFERENCES Feature(ID),
-MenuOrder INT NOT NULL
+Enable INT DEFAULT '1',
+CONSTRAINT CHK_Enable CHECK (Enable = 0 OR Enable = 1)
 );
+
 
 Create Table FeatureByUserType(
 UserTypeId INT FOREIGN KEY REFERENCES UserType(Id),
@@ -206,19 +208,30 @@ SubstitutionId INT FOREIGN KEY REFERENCES Substitution(Id) NOT NULL,
 ApproverId INT FOREIGN KEY REFERENCES Administrator(Id) NOT NULL
 );
 
-CREATE TABLE [dbo].[SiteMapPagesByFeature](
-	FeatureId INT FOREIGN KEY REFERENCES Feature(Id) NOT NULL,
-	PageId INT NOT NULL,
+
+CREATE TABLE SiteMapPagesByFeature(
+FeatureId INT FOREIGN KEY REFERENCES Feature(Id) NOT NULL,
+PageId INT NOT NULL,
  CONSTRAINT PK_SiteMapPagesByFeature PRIMARY KEY (FeatureId,PageId)
-)
+);
 
-CREATE TABLE [dbo].[SiteMapPages](
-	Id INT IDENTITY(1,1) Primary Key NOT NULL,
-	PageKey VARCHAR(120) NOT NULL,
-	ParentId INT REFERENCES SiteMapPages(Id) NULL,
-	Ordinal INT NOT NULL);
+CREATE TABLE SiteMapPages(
+Id INT IdENTITY(1,1) Primary Key NOT NULL,
+PageKey VARCHAR(120) NOT NULL,
+Parent INT REFERENCES SiteMapPages(Id) NULL,
+Ordinal INT NOT NULL);
 
 
+
+----      Inserts    ----
+
+insert into UserType values('Admin');
+insert into Genre values('Male')
+insert into Genre values('Female')
+
+
+
+insert into Users values('Admin','$2a$05$f6L2Ay0qcVoAVQjJbC9u5uoQ92.tdQoVoSxQTEJWvysU1mq08/RJi',51284679,'juanmanuelmuller@gmail.com',1,123123,'28-05-2000','01-07-2022',1);
 
 
 ----Stored Procedures----
@@ -252,6 +265,12 @@ SELECT * FROM FeatureByUserType fbut inner join Users u on u.UserTypeId = fbut.U
 
 
 END
+
+
+
+
+
+
 
 
 

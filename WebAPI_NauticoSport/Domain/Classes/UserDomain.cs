@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrossCuttingConcerns.DTOs;
+using CrossCuttingConcerns.Models;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -18,12 +20,12 @@ namespace Domain.Classes
         }
         #endregion
 
-        public IActionResult getFeaturesByUser()
-{
+        public GetFeaturesByUserOut getFeaturesByUser(GetFeaturesByUserIn input)
+        {
 
-            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            
 
-            return Ok(identity);
+            return new List<Feature>();
         }
     }
 }

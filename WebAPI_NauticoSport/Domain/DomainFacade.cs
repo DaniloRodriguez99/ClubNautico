@@ -20,5 +20,10 @@ namespace Domain
         public LoginOut login(LoginIn input) { 
             return AuthDomain.Instance().login(input);
         }
+
+        public GetFeaturesByUserOut GetFeaturesByUser(GetFeaturesByUserIn input)
+        {
+            return UserDomain.Instance().getFeaturesByUser(input);
+        }
     }
 }

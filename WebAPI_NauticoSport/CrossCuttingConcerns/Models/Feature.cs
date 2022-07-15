@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CrossCuttingConcerns.Models
 {
-    internal class Feature
+    public class Feature
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Enable  { get; set; }
     }
 }

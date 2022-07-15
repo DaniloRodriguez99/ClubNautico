@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CrossCuttingConcerns.Models
 {
-    public class SiteMapPagesByFeature
+    public class FeaturesByUserType
     {
-        public int Feature { get; set; }
-        public List<SiteMapPages>? SitePages { get; set; }
-
+        public int UserType { get; set; }
+        public List<Feature> Features { get; set; }
     }
 }

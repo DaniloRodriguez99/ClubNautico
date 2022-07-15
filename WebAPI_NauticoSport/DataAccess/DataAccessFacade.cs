@@ -33,5 +33,9 @@ namespace DataAccess
             return AuthDataAccess.Instance().login(input);
         }
 
+        public GetFeaturesByUserOut getFeaturesByUser(GetFeaturesByUserIn input)
+        {
+            return UserDataAccess.Instance().getFeatureByUser(input);
+        }
     }
 }

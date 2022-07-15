@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CrossCuttingConcerns.Models
 {
-    internal class SiteMapPages
+    public class SiteMapPages
     {
+        public int Id { get; set; }
+        public string PageKey { get; set; }
+        public SiteMapPages Parent { get; set; }
+        public int Ordinal { get; set; }
     }
 }
