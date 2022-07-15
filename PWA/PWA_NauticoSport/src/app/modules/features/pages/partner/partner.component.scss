@@ -11,22 +11,45 @@
     border-width: 1px;
 }
 
+.page {
+    padding-top: 7vh;
+}
+
 @media (max-width: 1024px) { //notebook
+    
+    .page {
+        padding-top: 7vh;
+    }
+}
+
+@media (max-width: 768px) { //tablet
+    .page_container {
+    background-color: #30303000;
+        border-color: #ffffff00;
+    }
+    
+    .page {
+        padding-top: 3vh;
+    }
+}
+
+@media (max-width: 425px) { //cellphone lg
     .page_container {
         background-color: #30303000;
         border-color: #ffffff00;
     }
-    
-}
-
-@media (max-width: 768px) { //tablet
-}
-
-@media (max-width: 425px) { //cellphone lg
 }
 
 @media (max-width: 375px) { //cellphone md
+    .page_container {
+        background-color: #30303000;
+        border-color: #ffffff00;
+    }
 }
 
 @media (max-width: 320px) { //cellphone sm
+    .page_container {
+        background-color: #30303000;
+        border-color: #ffffff00;
+    }
 }

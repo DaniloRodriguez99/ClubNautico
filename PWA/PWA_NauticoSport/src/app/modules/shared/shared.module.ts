@@ -11,6 +11,7 @@ import { InputCustomComponent } from './input-custom/input-custom.component';
 import { SitemapComponent } from './sitemap/sitemap.component';
 import { MessageComponent } from './message/message.component';
 import { TranslatePipe } from 'src/app/pipes/translate.pipe';
+import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component';
 
 @NgModule({
   declarations: [NavbarComponent,
@@ -19,6 +20,7 @@ import { TranslatePipe } from 'src/app/pipes/translate.pipe';
     SitemapComponent,
     MessageComponent,
     TranslatePipe,
+    BottomNavBarComponent,
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { TranslatePipe } from 'src/app/pipes/translate.pipe';
     InputCustomComponent,
     SitemapComponent,
     MessageComponent,
-    TranslatePipe
+    TranslatePipe,
+    BottomNavBarComponent,
   ],
   providers: [
   ]

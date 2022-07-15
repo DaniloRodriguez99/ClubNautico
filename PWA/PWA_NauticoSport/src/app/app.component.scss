@@ -10,3 +10,91 @@
     --bs-gutter-x: 0rem; 
     --bs-gutter-y: 0;
 }
+
+.pageContainer {
+        margin:4px, 4px;
+        padding:4px;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align:justify;
+}
+
+.topNavbar {
+    position: fixed;
+    height: 12vh;
+}
+
+.pageContainer {
+    padding-top: 12vh;
+    padding-bottom: 0vh;
+}
+
+.bottomNavbar {
+    display: none;
+}
+
+@media (max-width: 1024px) { //notebook
+    
+    .pageContainer {
+        padding-top: 12vh;
+        padding-bottom: 0vh;
+    }
+}
+@media (max-width: 768px) { //tablet
+
+    .pageContainer {
+        padding-top: 12vh;
+        padding-bottom: 9vh;
+    }
+    
+    .bottomNavbar {
+        position: fixed;
+        bottom: 0;
+        height: 9vh;
+        display: block;
+    }
+}
+
+@media (max-width: 425px) { //cellphone lg
+    .pageContainer {
+        padding-top: 12vh;
+        padding-bottom: 9vh;
+    }
+
+    .bottomNavbar {
+        position: fixed;
+        bottom: 0;
+        height: 9vh;
+        display: block;
+    }
+}
+@media (max-width: 375px) { //cellphone md
+    
+    .pageContainer {
+        padding-top: 12vh;
+        padding-bottom: 9vh;
+    }
+
+    .bottomNavbar {
+        position: fixed;
+        bottom: 0;
+        height: 9vh;
+        display: block;
+    }
+}
+@media (max-width: 320px) { //cellphone sm
+    
+    .pageContainer {
+        padding-top: 12vh;
+        padding-bottom: 9vh;
+    }
+
+    .bottomNavbar {
+        position: fixed;
+        bottom: 0;
+        height: 9vh;
+        display: block;
+    }
+}

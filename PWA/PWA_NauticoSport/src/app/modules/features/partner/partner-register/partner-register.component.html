@@ -1,88 +1,104 @@
-
 <div class="container pb-5">
-    <div class="row">
-        <div class="col-12 container-fluid">
-            <form #myForm class=" row">
-                <app-input-custom 
-                    label_text="inputs.name.placeholder" 
-                    type="text" aria-sort=""
-                    #name
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-                
-                <app-input-custom 
-                    label_text="inputs.lastname.placeholder" 
-                    type="text" 
-                    #lastname
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
+  <div class="row">
+    <div class="col-12 container-fluid">
+      <form [formGroup]="signUpFormGroup" (ngSubmit)="onSubmit()" class="row">
 
-                <app-input-custom 
-                    label_text="inputs.username.placeholder" 
-                    type="text" 
-                    #username
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="username"> {{ 'inputs.username.placeholder' | translate }} </label>
+          <input type="text" name="username" class="input-custom col-lg-6 col-sm-12" formControlName="username">
+          <app-message *ngIf="signUpFormGroup.controls['username'].errors" type="error" message="{{ usernameMessage }}">
+          </app-message>
 
-                <app-input-custom 
-                    label_text="inputs.documentTypes.placeholder" 
-                    type="documentTypes_select" 
-                    #document_type
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-                
-                <app-input-custom 
-                    label_text="inputs.password.placeholder" 
-                    type="password" 
-                    #password
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-
-                <app-input-custom 
-                    label_text="inputs.document_number.placeholder" 
-                    type="number" 
-                    #document_number
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-
-                <app-input-custom 
-                    label_text="inputs.repeatedPassword.placeholder" 
-                    type="password" 
-                    #repeatedPassword
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-                
-                <app-input-custom 
-                    label_text="inputs.email.placeholder" 
-                    type="email" 
-                    #email
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-                
-                <app-input-custom 
-                    label_text="inputs.birthday.placeholder" 
-                    type="date" 
-                    #birthday
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-                
-                <app-input-custom 
-                    label_text="inputs.genres.placeholder" 
-                    type="genres_select"
-                    #genre
-                    class="col-lg-6 col-sm-12">
-                </app-input-custom>
-            </form>
-            <div class="row pt-5">
-                <span class="col-md-2"></span>
-                <div class="col-sm-6 col-md-3 d-flex justify-content-center">
-                    <button class="w-100 button_custom cancel" (click)="cancel()"> {{ 'buttons.cancel' | translate }} </button>
-                </div>
-                <div class="col-sm-6 col-md-5 d-flex justify-content-center">
-                    <button class="w-100 button_custom accept" (click)="register()"> {{ 'buttons.signup' | translate }} </button>
-                </div>
-                <span class="col-md-2"></span>
-            </div>
         </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="password"> {{ 'inputs.password.placeholder' | translate }} </label>
+          <input type="text" name="password" class="input-custom col-lg-6 col-sm-12" formControlName="password">
+          <app-message *ngIf="signUpFormGroup.controls['password'].errors" type="error" message="{{ passwordMessage }}">
+          </app-message>
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="repeatedPassword"> {{ 'inputs.repeatedPassword.placeholder' | translate }}
+          </label>
+          <input type="text" name="repeatedPassword" class="input-custom col-lg-6 col-sm-12"
+            formControlName="repeatedPassword">
+          <app-message *ngIf="signUpFormGroup.controls['repeatedPassword'].errors" type="error"
+            message="{{ repeatedPasswordMessage }}"></app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="documentNumber"> {{ 'inputs.documentNumber.placeholder' | translate }}
+          </label>
+          <input type="text" name="documentNumber" class="input-custom col-lg-6 col-sm-12"
+            formControlName="documentNumber">
+          <app-message *ngIf="signUpFormGroup.controls['documentNumber'].errors" type="error"
+            message="{{ documentNumberMessage }}"></app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="email"> {{ 'inputs.email.placeholder' | translate }} </label>
+          <input type="text" name="email" class="input-custom col-lg-6 col-sm-12" formControlName="email">
+          <app-message *ngIf="signUpFormGroup.controls['email'].errors" type="error" message="{{ emailMessage }}">
+          </app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="genres"> {{ 'inputs.genres.placeholder' | translate }} </label>
+          <input type="text" name="genres" class="input-custom col-lg-6 col-sm-12" formControlName="genre">
+          <app-message *ngIf="signUpFormGroup.controls['genre'].errors" type="error" message="{{ genreMessage }}">
+          </app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="birthday"> {{ 'inputs.birthday.placeholder' | translate }} </label>
+          <input type="text" name="birthday" class="input-custom col-lg-6 col-sm-12" formControlName="birthday">
+          <app-message *ngIf="signUpFormGroup.controls['birthday'].errors" type="error" message="{{ birthdayMessage }}">
+          </app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="name"> {{ 'inputs.name.placeholder' | translate }} </label>
+          <input type="text" name="name" class="input-custom col-lg-6 col-sm-12" formControlName="name">
+          <app-message *ngIf="signUpFormGroup.controls['name'].errors" type="error" message="{{ nameMessage }}">
+          </app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="lastname"> {{ 'inputs.lastname.placeholder' | translate }} </label>
+          <input type="text" name="lastname" class="input-custom col-lg-6 col-sm-12" formControlName="lastname">
+          <app-message *ngIf="signUpFormGroup.controls['lastname'].errors" type="error" message="{{ lastnameMessage }}">
+          </app-message>
+
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <label class="label-custom" for="documentType"> {{ 'inputs.documentTypes.placeholder' | translate }} </label>
+          <input type="text" name="documentType" class="input-custom col-lg-6 col-sm-12" formControlName="documentType">
+          <app-message *ngIf="signUpFormGroup.controls['documentType'].errors" type="error"
+            message="{{ documentTypeMessage }}"></app-message>
+        </div>
+
+        <div class="col-12" *ngIf="signUpFormGroup.status == 'INVALID'">
+          <app-message message="ERrrorrrr"></app-message>
+        </div>
+
+        <span class="col-md-2"></span>
+        <div class="col-sm-6 col-md-3 d-flex justify-content-center">
+          <button type="cancel" class="w-100 button_custom cancel" (click)="cancel()">
+            {{ 'buttons.cancel' | translate }} </button>
+        </div>
+        <div class="col-sm-6 col-md-5 d-flex justify-content-center">
+          <button type="submit" class="w-100 button_custom accept"> {{ 'buttons.signup' | translate }} </button>
+        </div>
+        <span class="col-md-2"></span>
+      </form>
     </div>
+  </div>
 </div>

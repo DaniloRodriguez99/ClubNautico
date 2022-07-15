@@ -21,6 +21,12 @@
         "accept": "Accept"
     },
     "inputs": {
+        "messages": {
+            "required": "Required field.",
+            "invalidDate": "Invalid date.",
+            "passwordsDoNotMatch": "Passwords do not match.",
+            "badFormat": "Incorrect format."
+        },
         "name": {
             "placeholder": "Name"
         },

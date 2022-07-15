@@ -21,6 +21,7 @@ import { PartnerDeleteComponent } from './partner/partner-delete/partner-delete.
 //services
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { PartnerService } from 'src/app/services/partner.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PartnerService } from 'src/app/services/partner.service';
   imports: [
     CommonModule,
     FeaturesRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginComponent,

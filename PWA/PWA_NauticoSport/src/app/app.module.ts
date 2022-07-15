@@ -12,6 +12,7 @@ import { AuthInterceptor } from './helper/auth.interceptor';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { TranslateService } from './services/translate.service';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function setupTranslateServiceFactory(
   service: TranslateService): Function {
@@ -31,6 +32,7 @@ export function setupTranslateServiceFactory(
     }),
     SharedModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     TranslateService,

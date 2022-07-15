@@ -25,6 +25,12 @@
         "accept": "Aceptar"
     },
     "inputs": {
+        "messages": {
+            "required": "Este campo es obligatorio.",
+            "invalidDate": "Fecha inválida.",
+            "passwordsDoNotMatch": "Las contraseñas no coinciden.",
+            "badFormat": "Formato incorrecto."
+        },
         "name": {
             "placeholder": "Nombre"
         },
@@ -63,7 +69,7 @@
         "birthday": {
             "placeholder": "Fecha de nacimiento"
         },
-        "document_number": {
+        "documentNumber": {
             "placeholder": "Número de documento"
         }
 

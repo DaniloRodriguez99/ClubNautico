@@ -39,6 +39,99 @@ body {
     border-radius: 100vw !important;
 }
 
+.input-custom {
+    padding-top: 2vh;
+    padding-bottom:  2vh;
+    padding-left:  3vh;
+    padding-right:  3vh;
+    max-height: 1000px;
+    margin-bottom: 2vh;
+    
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    border:1px solid #ffffff;
+    background-color: #ffffff00;
+
+    width: 100%;
+    color-scheme: dark;
+}
+
+.input-custom::placeholder {
+    color: #ffffff;
+}
+
+.input-custom:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+}
+
+.input-custom:hover {
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.input-custom[type="number"] {
+    -moz-appearance: textfield;
+}
+.input-custom[type="number"]::-webkit-inner-spin-button, 
+.input-custom[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.select-custom {
+    display: block;
+
+    padding-top: 2vh;
+    padding-bottom:  2vh;
+    padding-left:  3vh;
+    padding-right:  3vh;
+    max-height: 60px;
+    margin-bottom: 2vh;
+        
+    color: rgb(255, 255, 255);
+    border-radius: 12px;
+    border:1px solid #ffffff;
+    background-color: #ffffff00;
+    
+    width: 100%;
+
+    option {
+        background-color: #000000;
+        color: rgb(255, 255, 255);
+    }
+    option:active{
+        background-color: #fc0000;
+        color: rgb(255, 255, 255);
+    }
+}
+
+.select-custom:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+}
+
+.select-custom:hover {
+    cursor: pointer;
+    outline: none !important;
+    box-shadow: 0 0 10px #00000071;
+    background-color: #000000af;
+    color: rgb(255, 255, 255);
+}
+
+
+.label-custom {
+    color:rgb(211, 211, 211);
+    padding-left: 1vw;
+}
+
 @media (max-width: 1024px) { //notebook
     .button_custom {
         width: 20vw;
@@ -47,6 +140,19 @@ body {
         height: 10vh;
         max-height: 70px;
         border: none;
+    }
+    .input-custom {
+        border-radius: 100px;
+        
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }
 
@@ -58,6 +164,18 @@ body {
         padding-bottom: 2vh;
         border: none;
     }
+    .input-custom {
+        border-radius: 100px;
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
 }
 
 @media (max-width: 425px) { //cellphone lg
@@ -66,6 +184,29 @@ body {
         padding-top: 2vh;
         padding-bottom: 2vh;
         border: none;
+    }
+    .input-custom {
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
+
+    .select-custom {
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }
 
@@ -76,6 +217,29 @@ body {
         padding-bottom: 2vh;
         border: none;
     }
+    .input-custom {
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
+
+    .select-custom {
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
 }
 
 @media (max-width: 320px) { //cellphone sm
@@ -84,5 +248,28 @@ body {
         padding-top: 2vh;
         padding-bottom: 2vh;
         border: none;
+    }
+    .input-custom {
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
+    }
+
+    .select-custom {
+        padding-top: 1.5vh;
+        padding-bottom:  1.5vh;
+        padding-left:  3vh;
+        padding-right:  3vh;
+        
+        color: rgb(255, 255, 255);
+        border-radius: 12px;
+        border:1px solid #ffffff;
+        background-color: #ffffff00;
     }
 }

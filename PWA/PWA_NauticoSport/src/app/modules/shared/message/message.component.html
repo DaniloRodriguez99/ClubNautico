@@ -1,6 +1,5 @@
-<p>message works!</p>
 <div class="message_container">
-    <span *ngIf="type == 'error' && message != ''" class="message-text error"> * {{ message }} </span>
-    <span *ngIf="type == 'success' && message != ''" class="message-text success"> * {{ message }} </span>
-    <span *ngIf="type == 'normal' && message != ''" class="message-text normal"> * {{ message }} </span>
+    <span *ngIf="type == 'error' && message != ''" class="message-text error"> * {{ message | translate }} </span>
+    <span *ngIf="type == 'success' && message != ''" class="message-text success"> * {{ message | translate }} </span>
+    <span *ngIf="type == 'normal' && message != ''" class="message-text normal"> * {{ message | translate }} </span>
 </div>

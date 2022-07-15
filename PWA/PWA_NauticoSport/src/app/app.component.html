@@ -1,7 +1,7 @@
 
-<div class="mainContianer container-fluid">
-    <app-navbar></app-navbar>
-    <div class="container-fluid">
+<div class="mainContianer container-fluid row">
+    <app-navbar class="topNavbar"></app-navbar>
+    <div class="container-fluid pageContainer">
         <div class="row">
             <app-sitemap *ngIf="userType == '1'" class="d-none" [ngClass]="{'col-2 d-md-block': userType == '1', 'd-md-none': userType == ''}"></app-sitemap>
             <div class="col-12" [ngClass]="{'col-md-10': userType == '1', 'col-12': userType != '1'}">
@@ -9,4 +9,5 @@
             </div> 
         </div>
     </div>
+    <app-bottom-nav-bar class="bottomNavbar"></app-bottom-nav-bar>
 </div>
