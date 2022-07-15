@@ -20,12 +20,11 @@ namespace Domain.Classes
         }
         #endregion
 
+        private DataAccess.DataAccessFacade dataAccessFacade = DataAccess.DataAccessFacade.Instance();
+
         public GetFeaturesByUserOut getFeaturesByUser(GetFeaturesByUserIn input)
         {
-
-            
-
-            return new List<Feature>();
+              return dataAccessFacade.getFeaturesByUser(input);
         }
     }
 }
