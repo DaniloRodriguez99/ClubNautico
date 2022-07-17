@@ -225,14 +225,33 @@ Ordinal INT NOT NULL);
 
 ----      Inserts    ----
 
-insert into UserType values('Admin');
-insert into Genre values('Male')
-insert into Genre values('Female')
+INSERT INTO UserType values('Admin');
+INSERT INTO Genre values('Male')
+INSERT INTO Genre values('Female')
 
 
 
-insert into Users values('Admin','$2a$05$f6L2Ay0qcVoAVQjJbC9u5uoQ92.tdQoVoSxQTEJWvysU1mq08/RJi',51284679,'juanmanuelmuller@gmail.com',1,123123,'28-05-2000','01-07-2022',1);
+INSERT INTO Users VALUES('Admin','$2a$05$f6L2Ay0qcVoAVQjJbC9u5uoQ92.tdQoVoSxQTEJWvysU1mq08/RJi',51284679,'juanmanuelmuller@gmail.com',1,123123,'28-05-2000','01-07-2022',1);
 
+INSERT INTO Feature VALUES('IDM Partner',1)
+INSERT INTO Feature VALUES('Insert Partner',1)
+INSERT INTO Feature VALUES('Delete Partner',1)
+INSERT INTO Feature VALUES('Modify Partner',1)
+
+INSERT INTO SiteMapPages(PageKey,Parent,Ordinal) VALUES('INSERT_DELETE_MODIFY_PARTNER',NULL,1000)
+INSERT INTO SiteMapPages(PageKey,Parent,Ordinal) VALUES('INSERT_PARTNER',1,1010)
+INSERT INTO SiteMapPages(PageKey,Parent,Ordinal) VALUES('DELETE_PARTNER',1,1020)
+INSERT INTO SiteMapPages(PageKey,Parent,Ordinal) VALUES('MODIFY_PARTNER',1,1030)
+
+INSERT INTO SiteMapPagesByFeature VALUES(1,1);
+INSERT INTO SiteMapPagesByFeature VALUES(2,2);
+INSERT INTO SiteMapPagesByFeature VALUES(3,3);
+INSERT INTO SiteMapPagesByFeature VALUES(4,4);
+
+INSERT INTO FeatureByUserType VALUES(1,1);
+INSERT INTO FeatureByUserType VALUES(1,2);
+INSERT INTO FeatureByUserType VALUES(1,3);
+INSERT INTO FeatureByUserType VALUES(1,4);
 
 ----Stored Procedures----
 
@@ -260,8 +279,8 @@ AS
 BEGIN 
 
 
-
-SELECT * FROM FeatureByUserType fbut inner join Users u on u.UserTypeId = fbut.UserTypeId  WHERE u.Username = @Username
+SELECT * FROM Feature f where f.Id in (
+SELECT fbut.FeatureId FROM FeatureByUserType fbut inner join Users u on u.UserTypeId = fbut.UserTypeId  WHERE u.Username = @Username)
 
 
 END

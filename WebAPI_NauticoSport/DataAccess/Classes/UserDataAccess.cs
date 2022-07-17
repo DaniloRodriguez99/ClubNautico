@@ -30,6 +30,7 @@ namespace DataAccess.Classes
             //build the sqlconnection and execute the sql command
             GetFeaturesByUserOut response = new GetFeaturesByUserOut()
             {
+                Features = new List<Feature>(),
                 operationResult = OperationResult.failure
             };
             using (SqlConnection conn = new SqlConnection(connectionstring))
@@ -46,15 +47,18 @@ namespace DataAccess.Classes
                     {
                         while (reader.Read())
                         {
-                            var features = new List<Feature>();
-                            
-                              
+                            var feature = new Feature()
+                            {
+                                Id = int.Parse(reader["Id"].ToString()),
+                                Name = reader["Name"].ToString(),
+                                Enable = int.Parse(reader["Enable"].ToString()),
 
-                            response.operationResult = OperationResult.success;
-                            response.Features = features;
+                            };
+                            response.Features.Add(feature);
                         }
                     }
                 }
+                response.operationResult = OperationResult.success;
             }
             return response;
         }

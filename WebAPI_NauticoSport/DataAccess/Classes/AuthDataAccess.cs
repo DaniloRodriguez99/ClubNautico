@@ -78,5 +78,45 @@ namespace DataAccess.Classes
             }
             return response;
         }
+
+        public GetFeaturesByUserOut getFeatureByUser(GetFeaturesByUserIn input)
+        {
+            //to get the connection string 
+            var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
+            //build the sqlconnection and execute the sql command
+            GetFeaturesByUserOut response = new GetFeaturesByUserOut()
+            {
+                Features = new List<Feature>(),
+                operationResult = OperationResult.failure
+            };
+            using (SqlConnection conn = new SqlConnection(connectionstring))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("getFeaturesByUser", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.User.Username;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var feature = new Feature()
+                            {
+                                Id = int.Parse(reader["Id"].ToString()),
+                                Name = reader["Name"].ToString(),
+                                Enable = int.Parse(reader["Enable"].ToString()),
+
+                            };
+                            response.Features.Add(feature);
+                        }
+                    }
+                }
+                response.operationResult = OperationResult.success;
+            }
+            return response;
+        }
     }
 }
