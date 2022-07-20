@@ -3,7 +3,6 @@ C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI_NauticoSport.AssemblyInfoInputs.cache
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI_NauticoSport.AssemblyInfo.cs
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI_NauticoSport.csproj.CoreCompileInputs.cache
-C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI_NauticoSport.MvcApplicationPartsAssemblyInfo.cs
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI_NauticoSport.MvcApplicationPartsAssemblyInfo.cache
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\bin\Debug\net6.0\appsettings.Development.json
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\bin\Debug\net6.0\appsettings.json
@@ -71,3 +70,4 @@ C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\bin\Debug\net6.0\runtim
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Proyectos\CTC\WebAPI_NauticoSport\WebAPI_NauticoSport\obj\Debug\net6.0\WebAPI_NauticoSport.MvcApplicationPartsAssemblyInfo.cs

@@ -10,10 +10,10 @@ namespace CrossCuttingConcerns.DTOs
 {
     public class LoginOut
     {
-        public OperationResult operationResult { get; set; }
+        public OperationResult Result { get; set; }
 
-        public string token { get; set; }
+        public string Token { get; set; }
 
-        public User user { get; set; }
+        public User User { get; set; }
     }
 }

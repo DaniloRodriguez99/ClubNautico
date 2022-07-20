@@ -26,16 +26,16 @@ namespace WebAPI_NauticoSport.Controllers
         {
 
             LoginOut response = domainFacade.login(input);
-            if (response.operationResult == OperationResult.success)
+            if (response.Result == OperationResult.success)
             {
                 var claims = new[] {
                 new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                new Claim("UserName", response.user.Username),
-                new Claim("UserId", response.user.UserId.ToString()),
-                new Claim("Genre", ((int)response.user.Genre).ToString()),
-                new Claim("UserType", ((int)response.user.UserType).ToString()),
+                new Claim("UserName", response.User.Username),
+                new Claim("UserId", response.User.UserId.ToString()),
+                new Claim("Genre", ((int)response.User.Genre).ToString()),
+                new Claim("Role", ((int)response.User.Role).ToString()),
                 };
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
                 var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -48,7 +48,7 @@ namespace WebAPI_NauticoSport.Controllers
                 );
 
 
-                response.token = new JwtSecurityTokenHandler().WriteToken(token);
+                response.Token = new JwtSecurityTokenHandler().WriteToken(token);
 
                 return Ok(response);
             }

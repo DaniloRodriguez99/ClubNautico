@@ -5,7 +5,11 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="username"> {{ 'inputs.username.placeholder' | translate }} </label>
-          <input type="text" name="username" class="input-custom col-lg-6 col-sm-12" formControlName="username">
+          <input 
+            type="text" 
+            name="username" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="username">
           <app-message *ngIf="signUpFormGroup.controls['username'].errors" type="error" message="{{ usernameMessage }}">
           </app-message>
 
@@ -13,7 +17,11 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="password"> {{ 'inputs.password.placeholder' | translate }} </label>
-          <input type="text" name="password" class="input-custom col-lg-6 col-sm-12" formControlName="password">
+          <input 
+            type="text" 
+            name="password" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="password">
           <app-message *ngIf="signUpFormGroup.controls['password'].errors" type="error" message="{{ passwordMessage }}">
           </app-message>
         </div>
@@ -21,7 +29,10 @@
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="repeatedPassword"> {{ 'inputs.repeatedPassword.placeholder' | translate }}
           </label>
-          <input type="text" name="repeatedPassword" class="input-custom col-lg-6 col-sm-12"
+          <input 
+            type="text" 
+            name="repeatedPassword" 
+            class="input-custom col-lg-6 col-sm-12"
             formControlName="repeatedPassword">
           <app-message *ngIf="signUpFormGroup.controls['repeatedPassword'].errors" type="error"
             message="{{ repeatedPasswordMessage }}"></app-message>
@@ -31,7 +42,10 @@
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="documentNumber"> {{ 'inputs.documentNumber.placeholder' | translate }}
           </label>
-          <input type="text" name="documentNumber" class="input-custom col-lg-6 col-sm-12"
+          <input 
+            type="text" 
+            name="documentNumber" 
+            class="input-custom col-lg-6 col-sm-12"
             formControlName="documentNumber">
           <app-message *ngIf="signUpFormGroup.controls['documentNumber'].errors" type="error"
             message="{{ documentNumberMessage }}"></app-message>
@@ -40,7 +54,11 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="email"> {{ 'inputs.email.placeholder' | translate }} </label>
-          <input type="text" name="email" class="input-custom col-lg-6 col-sm-12" formControlName="email">
+          <input 
+            type="email" 
+            name="email" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="email">
           <app-message *ngIf="signUpFormGroup.controls['email'].errors" type="error" message="{{ emailMessage }}">
           </app-message>
 
@@ -48,7 +66,19 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="genres"> {{ 'inputs.genres.placeholder' | translate }} </label>
-          <input type="text" name="genres" class="input-custom col-lg-6 col-sm-12" formControlName="genre">
+          <select 
+            name="genres" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="genre">
+            <option 
+                selected 
+                disabled 
+                hidden>{{ "inputs.genres.options.default" | translate }}</option>
+            <option 
+                *ngFor="let item of genresMapped" 
+                value="{{ item.value }}"> {{ item.text | translate }} </option>
+          </select>
+
           <app-message *ngIf="signUpFormGroup.controls['genre'].errors" type="error" message="{{ genreMessage }}">
           </app-message>
 
@@ -56,7 +86,11 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="birthday"> {{ 'inputs.birthday.placeholder' | translate }} </label>
-          <input type="text" name="birthday" class="input-custom col-lg-6 col-sm-12" formControlName="birthday">
+          <input 
+            type="date" 
+            name="birthday" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="birthday">
           <app-message *ngIf="signUpFormGroup.controls['birthday'].errors" type="error" message="{{ birthdayMessage }}">
           </app-message>
 
@@ -64,7 +98,11 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="name"> {{ 'inputs.name.placeholder' | translate }} </label>
-          <input type="text" name="name" class="input-custom col-lg-6 col-sm-12" formControlName="name">
+          <input 
+            type="text" 
+            name="name" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="name">
           <app-message *ngIf="signUpFormGroup.controls['name'].errors" type="error" message="{{ nameMessage }}">
           </app-message>
 
@@ -72,7 +110,11 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="lastname"> {{ 'inputs.lastname.placeholder' | translate }} </label>
-          <input type="text" name="lastname" class="input-custom col-lg-6 col-sm-12" formControlName="lastname">
+          <input 
+            type="text" 
+            name="lastname" 
+            class="input-custom col-lg-6 col-sm-12" 
+            formControlName="lastname">
           <app-message *ngIf="signUpFormGroup.controls['lastname'].errors" type="error" message="{{ lastnameMessage }}">
           </app-message>
 
@@ -80,13 +122,24 @@
 
         <div class="col-lg-6 col-sm-12">
           <label class="label-custom" for="documentType"> {{ 'inputs.documentTypes.placeholder' | translate }} </label>
-          <input type="text" name="documentType" class="input-custom col-lg-6 col-sm-12" formControlName="documentType">
+          <select 
+          name="documentType" 
+          class="input-custom col-lg-6 col-sm-12" 
+          formControlName="documentType">
+            <option 
+                selected 
+                disabled 
+                hidden>{{ 'inputs.documentTypes.options.default' | translate }}</option>
+            <option 
+                *ngFor="let item of documentTypeMapped" 
+                value="{{ item.value }}"> {{ item.text | translate }} </option>
+          </select>
           <app-message *ngIf="signUpFormGroup.controls['documentType'].errors" type="error"
             message="{{ documentTypeMessage }}"></app-message>
         </div>
 
-        <div class="col-12" *ngIf="signUpFormGroup.status == 'INVALID'">
-          <app-message message="ERrrorrrr"></app-message>
+        <div class="col-12" *ngIf="!signUpFormGroup.valid && isSubmitted">
+          <app-message message="{{ signUpFormMessage }}"></app-message>
         </div>
 
         <span class="col-md-2"></span>

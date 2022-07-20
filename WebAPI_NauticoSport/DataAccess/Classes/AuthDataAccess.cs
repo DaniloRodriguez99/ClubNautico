@@ -31,7 +31,7 @@ namespace DataAccess.Classes
             var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
             //build the sqlconnection and execute the sql command
             LoginOut response = new LoginOut() { 
-                operationResult = OperationResult.failure
+                Result = OperationResult.failure
             };
             using (SqlConnection conn = new SqlConnection(connectionstring))
             {
@@ -41,7 +41,7 @@ namespace DataAccess.Classes
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.userName;
+                    cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.Username;
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -49,7 +49,8 @@ namespace DataAccess.Classes
                         {
                             var password = reader["Password"].ToString();
 
-                            bool verified = BCrypt.Net.BCrypt.Verify(input.password, password);
+
+                            bool verified = BCrypt.Net.BCrypt.Verify(input.Password, password);
 
                             if (verified)
                             {
@@ -58,19 +59,23 @@ namespace DataAccess.Classes
                                     Username = reader["Username"].ToString(),
                                     UserId = int.Parse(reader["Id"].ToString()),
                                     Birthday = DateTime.Parse(reader["Birthday"].ToString()),
-                                    CI = int.Parse(reader["CI"].ToString()),
+                                    Ci = int.Parse(reader["Ci"].ToString()),
                                     Email = reader["Email"].ToString(),
                                     Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
-                                    UserType = (UserTypeEnum)int.Parse(reader["UserTypeId"].ToString()),
+                                    //ProfileIMG = reader["ProfileIMG"].ToString(), TODO - falta crearlo en bd
+                                    Role = (RoleEnum)int.Parse(reader["Role"].ToString()),
+                                    CreationDate = DateTime.Parse(reader["CreationDate"].ToString()),
+                                    Name = reader["Name"].ToString(),
+                                    LastName = reader["Lastname"].ToString(),
 
                                 };
 
-                                response.operationResult = OperationResult.success;
-                                response.user = user;
+                                response.Result = OperationResult.success;
+                                response.User = user;
                             }
                             else
                             {
-                                response.operationResult = OperationResult.failure;
+                                response.Result = OperationResult.failure;
                             }
                         }
                     }

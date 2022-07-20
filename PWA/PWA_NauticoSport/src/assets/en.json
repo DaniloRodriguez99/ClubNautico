@@ -25,48 +25,59 @@
             "required": "Required field.",
             "invalidDate": "Invalid date.",
             "passwordsDoNotMatch": "Passwords do not match.",
-            "badFormat": "Incorrect format."
+            "badFormat": "Incorrect format.",
+            "formWithErrors": "The form contains errors, please try again."
         },
         "name": {
-            "placeholder": "Name"
+            "placeholder": "Name",
+            "message": "Please enter a valid name."
         },
         "lastname": {
-            "placeholder": "Lastname"
+            "placeholder": "Lastname",
+            "message": "Please enter a valid last name."
         },
-        "genres": {
+        "genre": {
             "placeholder": "Genre",
             "options": {
                 "default": "Select Genre",
                 "female": "Female",
-                "male": "Male",
+                "male" : "male",
                 "other": "Other"
-            }
+            },
+            "message": "Select a genre."
         },
         "documentTypes": {
             "placeholder": "Document Type",
             "options": {
                 "default": "Select Type",
-                "dni": "Identity Card",
+                "ID": "Identity Card",
                 "passport": "Passport"
-            }
+            },
+            "message": "Please select a valid document type."
         },
         "username": {
-            "placeholder": "Username"
+            "placeholder": "Username",
+            "message": "Enter a username between 8 and 15 characters long."
         },
         "password": {
-            "placeholder": "Password"
+            "placeholder": "Password",
+            "message": "Enter a password with at least one uppercase character and between 8 and 12 characters long."
         },
         "repeatedPassword": {
-            "placeholder": "Repeat password"
+            "placeholder": "Repeat password",
+            "message": "Repeat the password in the same format."
         },
         "email": {
-            "placeholder": "Email"
+            "placeholder": "Email",
+            "message": "Enter a valid email."
         },
         "birthday": {
-            "placeholder": "Birthday"
+            "placeholder": "Birthday",
+            "message": "Please enter a valid date."
         },
         "document_number": {
-            "placeholder": "Document number"
+            "placeholder": "Document number",
+            "message": "The document number must be valid."
         }
     }
 }

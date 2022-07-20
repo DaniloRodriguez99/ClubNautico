@@ -33,18 +33,11 @@ namespace WebAPI_NauticoSport.Controllers
                         Username = identity.FindFirst("Username").Value,
                         UserId = int.Parse(identity.FindFirst("UserId").Value),
                         Genre = (GenreEnum)int.Parse(identity.FindFirst("Genre").Value),
-                        UserType = (UserTypeEnum)int.Parse(identity.FindFirst("UserType").Value),
-
+                        Role = (RoleEnum)int.Parse(identity.FindFirst("UserType").Value),
                     }
                 );
             }
             return NotFound("Socio no encontrado");
-        }
-
-        [HttpPost("signup")]
-        public IActionResult PartnerSignUp([FromBody] PartnerSignUpIn input) 
-        {
-            return Ok(input);
         }
     }
 }

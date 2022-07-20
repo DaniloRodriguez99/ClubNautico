@@ -10,5 +10,6 @@ namespace CrossCuttingConcerns.Enums
     {
         success = 0,
         failure = 1,
+        notFound = 2,
     }
 }

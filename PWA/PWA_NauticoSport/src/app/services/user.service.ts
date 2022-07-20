@@ -1,30 +1,31 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError, Observable, Subject, Subscription, throwError } from 'rxjs';
+import { RoleEnum } from 'src/app/helper/role-enum';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PartnerService {
-
-  constructor(private http: HttpClient) { }
+export class UserService {
 
   baseURL = "https://localhost:7259"
 
-  getPartnerByPartnerId = () => {
-    let request = () => {
-      let response =  this.http.get(this.baseURL + '/api/partner', {});
-      return response;
-    }
-    return request().subscribe((response:any) => {
-      return response;
-    })
+  constructor(private http: HttpClient, private router: Router) { }
+
+  timeout = 0;
+  tokenSubscription = new Subscription();
+
+  public onLoginChange = new Subject();
+
+  signUpPartner = (data: any) : Promise<Observable<any>> => {
+    return this.signUp(data, RoleEnum.partner );
   }
 
-  signUp = (data: any) : Promise<Observable<any>> => {
+  private signUp = (data: any, role: number) : Promise<Observable<any>> => {
     return new Promise<Observable<any>>((resolve, reject) => {
       let request = () => {
-        let response = this.http.post(this.baseURL + '/api/partner/signup', 
+        let response = this.http.post(this.baseURL + '/api/user/signup', 
         { 
           Name: data.name,
           Lastname: data.lastname,
@@ -35,7 +36,8 @@ export class PartnerService {
           DocumentNumber: data.documentNumber,
           Email: data.email,
           Birthday: data.birthday,
-          Genre: Number.parseInt(data.genre)
+          Genre: Number.parseInt(data.genre),
+          Role: role
         }
         );
         return response;

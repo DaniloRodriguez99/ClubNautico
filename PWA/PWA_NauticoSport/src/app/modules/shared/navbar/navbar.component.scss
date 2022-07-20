@@ -3,6 +3,7 @@ nav {
     padding-left: 2vh;
     padding-right: 2vh;
     height: 100%;
+    max-height: 10vh;
 }
 
 .navbar {
@@ -36,4 +37,15 @@ nav {
 
 .nav-link {
     color: #ffff
+}
+
+
+@media (max-width: 1024px) { //notebook
+    nav {
+        background: #333333;
+        padding-left: 2vh;
+        padding-right: 2vh;
+        height: 100%;
+        max-height: none;
+    }
 }

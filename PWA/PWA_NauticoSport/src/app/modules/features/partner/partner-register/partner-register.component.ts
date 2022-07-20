@@ -2,11 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, Form, FormBuilder, FormControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomValidations } from 'src/app/helper/custom-validations';
-import { DocumentTypes } from 'src/app/helper/document-types';
-import { Genres } from 'src/app/helper/genres';
+import { DocumentTypes, DocumentTypesMapper } from 'src/app/helper/document-types';
+import { Genres, GenresMapper } from 'src/app/helper/genres';
 import { regularExpressions } from 'src/app/helper/regularExpressions';
 import { InputCustomComponent } from 'src/app/modules/shared/input-custom/input-custom.component';
 import { PartnerService } from 'src/app/services/partner.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-partner-register',
@@ -16,27 +17,34 @@ import { PartnerService } from 'src/app/services/partner.service';
 export class PartnerRegisterComponent implements OnInit {
 
   constructor( private router: Router,
-    private partnerService: PartnerService,
+    private userService: UserService,
     private fb: FormBuilder) { }
+    isSubmitted = false;
 
   ngOnInit(): void {
+    this.isSubmitted = false;
   }
 
   private customValidations : CustomValidations = new CustomValidations();
 
   baseRootMessage = "inputs.messages."
 
-  usernameMessage: string = "user";
-  passwordMessage: string = "ppass";
-  repeatedPasswordMessage: string = "repe";
-  documentNumberMessage: string = "docu";
-  emailMessage: string = "email";
-  genreMessage: string = "asd";
-  birthdayMessage: string = "asd";
-  nameMessage: string = "asd";
-  lastnameMessage: string = "asd";
-  documentTypeMessage: string = "asd";
-  
+
+    usernameMessage: string = "inputs.username.message"
+    passwordMessage: string = "inputs.password.message"
+    repeatedPasswordMessage: string = "inputs.repeatedPassword.message"
+    documentNumberMessage: string = "inputs.documentNumber.message"
+    emailMessage: string = "inputs.email.message"
+    genreMessage: string = "inputs.genres.message"
+    birthdayMessage: string = "inputs.birthday.message"
+    nameMessage: string = "inputs.name.message"
+    lastnameMessage: string = "inputs.lastname.message"
+    documentTypeMessage: string = "inputs.documentTypes.message"
+
+  signUpFormMessage: string = "inputs.common_messages.formWithErrors";
+
+  genresMapped = GenresMapper.map();
+  documentTypeMapped = DocumentTypesMapper.map();
 
   signUpFormGroup = this.fb.group({
     username: ["", [
@@ -51,7 +59,7 @@ export class PartnerRegisterComponent implements OnInit {
       this.customValidations.passwordRegExp()
     ]],
     repeatedPassword: ["", [
-      Validators.required, 
+      Validators.required,
       Validators.maxLength(12),
       Validators.minLength(8),
       this.customValidations.passwordRegExp()
@@ -69,7 +77,6 @@ export class PartnerRegisterComponent implements OnInit {
       Validators.maxLength(20),
       Validators.email,
       this.customValidations.emailRegExp()
-
     ]],
     genre: ["", [
       Validators.required
@@ -94,14 +101,19 @@ export class PartnerRegisterComponent implements OnInit {
     validators: this.customValidations.passwordMatch(),
     updateOn: "change" });
 
+
+
   cancel = () => {
     this.router.navigateByUrl("/home")
   }
   
   onSubmit = () => {
     if(this.signUpFormGroup.valid) {
-      this.partnerService.signUp(this.signUpFormGroup.value)
+      this.userService.signUpPartner(this.signUpFormGroup.value).then((response) => {
+
+      })
     }
+    this.isSubmitted = true;
   }
 
 }

@@ -23,7 +23,11 @@ namespace Domain
 
         public GetFeaturesByUserOut GetFeaturesByUser(GetFeaturesByUserIn input)
         {
-            return UserDomain.Instance().getFeaturesByUser(input);
+            return new GetFeaturesByUserOut();//UserDomain.Instance().getFeaturesByUser(input);
+        }
+
+        public UserSignUpOut userSignUp(UserSignUpIn input) {
+            return UserDomain.Instance().userSignUp(input);
         }
     }
 }

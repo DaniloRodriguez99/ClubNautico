@@ -34,7 +34,7 @@ namespace CrossCuttingConcerns.DTOs
 
         public DateTime CreationDate { get; set; }
 
-        public UserTypeEnum UserType { get; set; }
+        public RoleEnum Role { get; set; }
 
         public OperationResult OperationResult { get; set; }
 

@@ -21,6 +21,14 @@ namespace WebAPI_NauticoSport.Controllers
             _configuration = config;
         }
 
+        [HttpPost("signUp")]
+        public IActionResult userSignUp([FromBody] UserSignUpIn input) {
+
+            UserSignUpOut result = domainFacade.userSignUp(input);
+
+            return Ok(result);
+        }
+
         [HttpGet("features")]
         public IActionResult getFeaturesByUser() {
 
@@ -38,12 +46,12 @@ namespace WebAPI_NauticoSport.Controllers
                                     Name = identity.FindFirst("Name").Value,
                                     LastName = identity.FindFirst("Lastname").Value,
                                     Username = identity.FindFirst("Username").Value,
-                                    CI = int.Parse(identity.FindFirst("Ci").Value),
+                                    Ci = int.Parse(identity.FindFirst("Ci").Value),
                                     Email = identity.FindFirst("Username").Value,
                                     Genre = (GenreEnum)int.Parse(identity.FindFirst("Genre").Value),
                                     Birthday = DateTime.MinValue,
                                     CreationDate = DateTime.MinValue,
-                                    UserType = (UserTypeEnum)int.Parse(identity.FindFirst("UserType").Value),
+                                    Role = (RoleEnum)int.Parse(identity.FindFirst("Role").Value),
                                 }
                             }
 

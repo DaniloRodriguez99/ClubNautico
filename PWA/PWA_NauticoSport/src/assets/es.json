@@ -25,17 +25,21 @@
         "accept": "Aceptar"
     },
     "inputs": {
-        "messages": {
+        "common_messages": {
             "required": "Este campo es obligatorio.",
             "invalidDate": "Fecha inválida.",
             "passwordsDoNotMatch": "Las contraseñas no coinciden.",
-            "badFormat": "Formato incorrecto."
+            "badFormat": "Formato incorrecto.",
+            "passwordFormat": "La contraseña debe contener entre 8 y 12 caracteres y al menos una letra mayuscula.",
+            "formWithErrors": "El formulario contiene errores, intentelo de nuevo."
         },
         "name": {
-            "placeholder": "Nombre"
+            "placeholder": "Nombre",
+            "message": "Ingrese un nombre válido."
         },
         "lastname": {
-            "placeholder": "Apellido"
+            "placeholder": "Apellido",
+            "message": "Ingrese un apellido válido."
         },
         "genres": {
             "placeholder": "Genero",
@@ -44,7 +48,8 @@
                 "female": "Femenino",
                 "male": "Masculino",
                 "other": "Otro"
-            }
+            },
+            "message": "Seleccione un genero."
         },
         "documentTypes": {
             "placeholder": "Tipo de documento",
@@ -52,25 +57,32 @@
                 "default": "Seleccionar Tipo",
                 "dni": "Cedula de identidad",
                 "passport": "Pasaporte"
-            }
+            },
+            "message": "Seleccione un tipo de documento válido."
         },
         "username": {
-            "placeholder": "Usuario"
+            "placeholder": "Usuario",
+            "message": "Ingrese un usuario con un largo de entre 8 y 15 caracteres."
         },
         "password": {
-            "placeholder": "Contraseña"
+            "placeholder": "Contraseña",
+            "message": "Ingrese una contraseña con almenos un caracter en mayuscula y un largo de entre 8 y 12 caracteres."
         },
         "repeatedPassword": {
-            "placeholder": "Repetir contraseña"
+            "placeholder": "Repetir contraseña",
+            "message": "Repita la contraseña respetando el mismo formato."
         },
         "email": {
-            "placeholder": "Correo electrónico"
+            "placeholder": "Correo electrónico",
+            "message": "Ingrese un email válido."
         },
         "birthday": {
-            "placeholder": "Fecha de nacimiento"
+            "placeholder": "Fecha de nacimiento",
+            "message": "Ingrese una fecha válida."
         },
         "documentNumber": {
-            "placeholder": "Número de documento"
+            "placeholder": "Número de documento",
+            "message": "El numero de documento debe ser válido."
         }
 
     }

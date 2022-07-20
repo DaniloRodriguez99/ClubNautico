@@ -37,5 +37,9 @@ namespace DataAccess
         {
             return UserDataAccess.Instance().getFeatureByUser(input);
         }
+
+        public UserSignUpOut userSignUp(UserSignUpIn input) {
+            return UserDataAccess.Instance().userSignUp(input);
+        }
     }
 }

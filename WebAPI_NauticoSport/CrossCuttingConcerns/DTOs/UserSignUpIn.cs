@@ -5,31 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrossCuttingConcerns.Models
+namespace CrossCuttingConcerns.DTOs
 {
-    public class User
+    public class UserSignUpIn
     {
-        public int UserId { get; set; }
-
         public string Name { get; set; }
-
-        public string LastName { get; set; }
-
+        public string Lastname { get; set; }
         public string Username { get; set; }
-
-        public int Ci { get; set; }
-
+        public int DocumentType { get; set; }
+        public string Password { get; set; }
+        public string RepeatedPassword { get; set; }
+        public int DocumentNumber { get; set; }
         public string Email { get; set; }
-
-        public GenreEnum Genre { get; set; }
-
-        public string ProfileIMG { get; set; }
-
         public DateTime Birthday { get; set; }
-
-        public DateTime CreationDate { get; set; }
-
+        public GenreEnum Genre { get; set; }
         public RoleEnum Role { get; set; }
-
     }
 }

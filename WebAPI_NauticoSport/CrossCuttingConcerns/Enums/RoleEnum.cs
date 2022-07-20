@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CrossCuttingConcerns.Enums
 {
-    public enum UserTypeEnum
+    public enum RoleEnum
     {
         admin = 1,
         partner = 2,

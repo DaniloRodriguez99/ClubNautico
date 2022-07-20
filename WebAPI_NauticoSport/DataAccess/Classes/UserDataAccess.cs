@@ -23,7 +23,7 @@ namespace DataAccess.Classes
         }
         #endregion
 
-        public GetFeaturesByUserOut getFeatureByUser (GetFeaturesByUserIn input)
+        public GetFeaturesByUserOut getFeatureByUser(GetFeaturesByUserIn input)
         {
             //to get the connection string 
             var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
@@ -60,6 +60,61 @@ namespace DataAccess.Classes
                 }
                 response.operationResult = OperationResult.success;
             }
+            return response;
+        }
+
+        public UserSignUpOut userSignUp(UserSignUpIn input)
+        {
+            UserSignUpOut response = new UserSignUpOut();
+
+            var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
+
+            using (SqlConnection conn = new SqlConnection(connectionstring))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("userSignUp", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+                    string cryp = BCrypt.Net.BCrypt.HashPassword(input.Password, BCrypt.Net.BCrypt.GenerateSalt(13));
+                    //cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.userName;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            /*var password = reader["Password"].ToString();
+
+                            bool verified = BCrypt.Net.BCrypt.Verify(input.password, password);
+
+                            if (verified)
+                            {
+                                var user = new User()
+                                {
+                                    Username = reader["Username"].ToString(),
+                                    UserId = int.Parse(reader["Id"].ToString()),
+                                    Birthday = DateTime.Parse(reader["Birthday"].ToString()),
+                                    CI = int.Parse(reader["CI"].ToString()),
+                                    Email = reader["Email"].ToString(),
+                                    Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
+                                    UserType = (UserTypeEnum)int.Parse(reader["UserTypeId"].ToString()),
+
+                                };
+
+                                response.operationResult = OperationResult.success;
+                                response.user = user;
+                            }
+                            else
+                            {
+                                response.operationResult = OperationResult.failure;
+                            }*/
+                        }
+                    }
+                }
+            }
+
             return response;
         }
     }
