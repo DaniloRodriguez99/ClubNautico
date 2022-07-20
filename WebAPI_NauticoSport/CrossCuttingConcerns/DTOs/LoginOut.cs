@@ -15,5 +15,6 @@ namespace CrossCuttingConcerns.DTOs
         public string Token { get; set; }
 
         public User User { get; set; }
+        public List<Feature>? Features { get; set; }
     }
 }

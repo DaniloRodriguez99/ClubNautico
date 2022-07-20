@@ -1,0 +1,32 @@
+USE [ClubNautico]
+GO
+/** Object:  StoredProcedure [dbo].[userLogin]    Script Date: 20/07/2022 01:30:18 a. m. **/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Alter procedure [dbo].[userLogin]
+@Username varchar(50)
+
+as
+begin
+    select 
+    u.Username,
+    u.Birthday,
+    u.Ci,
+    u.Email,
+    u.Name,
+    u.Lastname,
+    u.Password,
+    u.Id,
+    u.GenreId,
+    u.CreationDate,
+    ur.RoleId as 'Role'
+    from users u inner join User_Role ur on u.id = ur.UserId where u.username = @Username
+
+	SELECT f.Id as 'FeatureId', f.Name as 'FeatureName', f.Description as 'FeatureDescription' FROM Feature f where f.Id in (
+SELECT fRole.FeatureId FROM Features_Role fRole inner join User_Role uRole on uRole.RoleId = fRole.RoleId inner join Users us on us.Id = uRole.UserId WHERE us.Username = @Username)
+
+
+
+end

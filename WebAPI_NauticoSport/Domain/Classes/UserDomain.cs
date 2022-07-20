@@ -22,11 +22,6 @@ namespace Domain.Classes
 
         private DataAccess.DataAccessFacade dataAccessFacade = DataAccess.DataAccessFacade.Instance();
 
-        public GetFeaturesByUserOut getFeaturesByUser(GetFeaturesByUserIn input)
-        {
-            return dataAccessFacade.getFeaturesByUser(input);
-        }
-
         public UserSignUpOut userSignUp(UserSignUpIn input) {
             
             return dataAccessFacade.userSignUp(input);

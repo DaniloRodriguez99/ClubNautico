@@ -1,5 +1,6 @@
 ﻿using CrossCuttingConcerns.DTOs;
 using CrossCuttingConcerns.Enums;
+using CrossCuttingConcerns.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,7 +29,7 @@ namespace WebAPI_NauticoSport.Controllers
             LoginOut response = domainFacade.login(input);
             if (response.Result == OperationResult.success)
             {
-                var claims = new[] {
+                List<Claim> claims = new List<Claim> {
                 new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
@@ -37,6 +38,13 @@ namespace WebAPI_NauticoSport.Controllers
                 new Claim("Genre", ((int)response.User.Genre).ToString()),
                 new Claim("Role", ((int)response.User.Role).ToString()),
                 };
+
+                foreach (Feature feature in response.Features)
+                {
+
+                    claims.Add(new Claim("Features", Json(feature).ToString()));
+                }
+
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
                 var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                 var token = new JwtSecurityToken(

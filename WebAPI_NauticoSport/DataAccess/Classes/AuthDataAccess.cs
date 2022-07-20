@@ -30,7 +30,8 @@ namespace DataAccess.Classes
             //to get the connection string 
             var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
             //build the sqlconnection and execute the sql command
-            LoginOut response = new LoginOut() { 
+            LoginOut response = new LoginOut() {
+                Features = new List<Feature>(),
                 Result = OperationResult.failure
             };
             using (SqlConnection conn = new SqlConnection(connectionstring))
@@ -45,39 +46,55 @@ namespace DataAccess.Classes
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
-                        {
-                            var password = reader["Password"].ToString();
-
-
-                            bool verified = BCrypt.Net.BCrypt.Verify(input.Password, password);
-
-                            if (verified)
+                            while (reader.Read())
                             {
-                                var user = new User()
+                                var password = reader["Password"].ToString();
+
+                                bool verified = BCrypt.Net.BCrypt.Verify(input.Password, password);
+
+                                if (verified)
                                 {
-                                    Username = reader["Username"].ToString(),
-                                    UserId = int.Parse(reader["Id"].ToString()),
-                                    Birthday = DateTime.Parse(reader["Birthday"].ToString()),
-                                    Ci = int.Parse(reader["Ci"].ToString()),
-                                    Email = reader["Email"].ToString(),
-                                    Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
-                                    //ProfileIMG = reader["ProfileIMG"].ToString(), TODO - falta crearlo en bd
-                                    Role = (RoleEnum)int.Parse(reader["Role"].ToString()),
-                                    CreationDate = DateTime.Parse(reader["CreationDate"].ToString()),
-                                    Name = reader["Name"].ToString(),
-                                    LastName = reader["Lastname"].ToString(),
+                                        var user = new User()
+                                        {
+                                            Username = reader["Username"].ToString(),
+                                            UserId = int.Parse(reader["Id"].ToString()),
+                                            Birthday = DateTime.Parse(reader["Birthday"].ToString()),
+                                            Ci = int.Parse(reader["Ci"].ToString()),
+                                            Email = reader["Email"].ToString(),
+                                            Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
+                                            //ProfileIMG = reader["ProfileIMG"].ToString(), TODO - falta crearlo en bd
+                                            Role = (RoleEnum)int.Parse(reader["Role"].ToString()),
+                                            CreationDate = DateTime.Parse(reader["CreationDate"].ToString()),
+                                            Name = reader["Name"].ToString(),
+                                            LastName = reader["Lastname"].ToString(),
 
-                                };
+                                        };
+                                            response.User = user;
 
-                                response.Result = OperationResult.success;
-                                response.User = user;
+                                    reader.NextResult();
+
+                                    while (reader.Read())
+                                    {
+
+                                        response.Features.Add(
+                                        new Feature()
+                                        {
+                                            Id = int.Parse(reader["FeatureId"].ToString()),
+                                            Name = reader["FeatureName"].ToString(),
+                                            Description = reader["FeatureDescription"].ToString()
+                                        }
+                                        );
+                                    }
+
+
+
+                                    response.Result = OperationResult.success;
+                                }
+                                else
+                                {
+                                    response.Result = OperationResult.failure;
+                                }
                             }
-                            else
-                            {
-                                response.Result = OperationResult.failure;
-                            }
-                        }
                     }
                 }
             }
@@ -112,7 +129,7 @@ namespace DataAccess.Classes
                             {
                                 Id = int.Parse(reader["Id"].ToString()),
                                 Name = reader["Name"].ToString(),
-                                Enable = int.Parse(reader["Enable"].ToString()),
+                                Description = reader["Description"].ToString(),
 
                             };
                             response.Features.Add(feature);
