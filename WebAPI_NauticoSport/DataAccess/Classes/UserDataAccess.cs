@@ -26,7 +26,9 @@ namespace DataAccess.Classes
 
         public UserSignUpOut userSignUp(UserSignUpIn input)
         {
-            UserSignUpOut response = new UserSignUpOut();
+            UserSignUpOut response = new UserSignUpOut() {
+                Result = OperationResult.failure
+            };
 
             var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
 
@@ -36,43 +38,28 @@ namespace DataAccess.Classes
 
                 using (SqlCommand cmd = new SqlCommand("userSignUp", conn))
                 {
+                    string passwordHashed = BCrypt.Net.BCrypt.HashPassword(input.Password, BCrypt.Net.BCrypt.GenerateSalt(13));
+
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.Username;
+                    cmd.Parameters.Add("@Email", System.Data.SqlDbType.VarChar).Value = input.Email;
+                    cmd.Parameters.Add("@Name", System.Data.SqlDbType.VarChar).Value = input.Name;
+                    cmd.Parameters.Add("@Lastname", System.Data.SqlDbType.VarChar).Value = input.Lastname;
+                    cmd.Parameters.Add("@Password", System.Data.SqlDbType.VarChar).Value = passwordHashed;
+                    cmd.Parameters.Add("@Ci", System.Data.SqlDbType.VarChar).Value = input.DocumentNumber;
+                    cmd.Parameters.Add("@GenreId", System.Data.SqlDbType.Int).Value = (int)input.Genre;
+                    cmd.Parameters.Add("@Birthday", System.Data.SqlDbType.DateTime).Value = input.Birthday.ToString("yyyy-MM-dd HH:mm:ss");
+                    cmd.Parameters.Add("@RoleId", System.Data.SqlDbType.Int).Value = (int)input.Role;
 
+                    int rowsAffected = cmd.ExecuteNonQuery();
 
-                    string cryp = BCrypt.Net.BCrypt.HashPassword(input.Password, BCrypt.Net.BCrypt.GenerateSalt(13));
-                    //cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar).Value = input.userName;
+                    conn.Close();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    if (rowsAffected > 0)
                     {
-                        while (reader.Read())
-                        {
-                            /*var password = reader["Password"].ToString();
-
-                            bool verified = BCrypt.Net.BCrypt.Verify(input.password, password);
-
-                            if (verified)
-                            {
-                                var user = new User()
-                                {
-                                    Username = reader["Username"].ToString(),
-                                    UserId = int.Parse(reader["Id"].ToString()),
-                                    Birthday = DateTime.Parse(reader["Birthday"].ToString()),
-                                    CI = int.Parse(reader["CI"].ToString()),
-                                    Email = reader["Email"].ToString(),
-                                    Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
-                                    UserType = (UserTypeEnum)int.Parse(reader["UserTypeId"].ToString()),
-
-                                };
-
-                                response.operationResult = OperationResult.success;
-                                response.user = user;
-                            }
-                            else
-                            {
-                                response.operationResult = OperationResult.failure;
-                            }*/
-                        }
+                        response.Result = OperationResult.success;
                     }
+
                 }
             }
 

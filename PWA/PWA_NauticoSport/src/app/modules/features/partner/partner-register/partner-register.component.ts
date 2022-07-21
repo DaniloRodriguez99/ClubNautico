@@ -30,16 +30,16 @@ export class PartnerRegisterComponent implements OnInit {
   baseRootMessage = "inputs.messages."
 
 
-    usernameMessage: string = "inputs.username.message"
-    passwordMessage: string = "inputs.password.message"
-    repeatedPasswordMessage: string = "inputs.repeatedPassword.message"
-    documentNumberMessage: string = "inputs.documentNumber.message"
-    emailMessage: string = "inputs.email.message"
-    genreMessage: string = "inputs.genres.message"
-    birthdayMessage: string = "inputs.birthday.message"
-    nameMessage: string = "inputs.name.message"
-    lastnameMessage: string = "inputs.lastname.message"
-    documentTypeMessage: string = "inputs.documentTypes.message"
+  usernameMessage: string = "inputs.username.message"
+  passwordMessage: string = "inputs.password.message"
+  repeatedPasswordMessage: string = "inputs.repeatedPassword.message"
+  documentNumberMessage: string = "inputs.documentNumber.message"
+  emailMessage: string = "inputs.email.message"
+  genreMessage: string = "inputs.genres.message"
+  birthdayMessage: string = "inputs.birthday.message"
+  nameMessage: string = "inputs.name.message"
+  lastnameMessage: string = "inputs.lastname.message"
+  documentTypeMessage: string = "inputs.documentTypes.message"
 
   signUpFormMessage: string = "inputs.common_messages.formWithErrors";
 
@@ -63,12 +63,11 @@ export class PartnerRegisterComponent implements OnInit {
       Validators.maxLength(12),
       Validators.minLength(8),
       this.customValidations.passwordRegExp()
-    ]]
-    ,
+    ]],
     documentNumber: ["", [
       Validators.required, 
-      Validators.maxLength(9),
-      Validators.minLength(9),
+      Validators.maxLength(8),
+      Validators.minLength(8),
       this.customValidations.numberOnly()
     ]],
     email: ["", [
