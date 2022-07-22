@@ -3,8 +3,8 @@
     <app-navbar class="topNavbar"></app-navbar>
     <div class="container-fluid pageContainer">
         <div class="row">
-            <app-sitemap *ngIf="userType == '1'" class="d-none" [ngClass]="{'col-2 d-md-block': userType == '1', 'd-md-none': userType == ''}"></app-sitemap>
-            <div class="col-12" [ngClass]="{'col-md-10': userType == '1', 'col-12': userType != '1'}">
+            <app-sitemap *ngIf="role == '1'" class="d-none" [ngClass]="{'col-2 d-md-block': role == '1', 'd-md-none': role == ''}"></app-sitemap>
+            <div class="col-12" [ngClass]="{'col-md-10': role == '1', 'col-12': role != '1'}">
                 <router-outlet></router-outlet>
             </div> 
         </div>

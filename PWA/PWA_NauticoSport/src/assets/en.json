@@ -8,6 +8,13 @@
         "partner": {
             "register": {
                 
+            },
+            "list": {
+                "titles": {
+                    "name": "Name: ",
+                    "userId": "Partner Id: ",
+                    "creationDate": "Date of admission: "
+                }
             }
         }
     },

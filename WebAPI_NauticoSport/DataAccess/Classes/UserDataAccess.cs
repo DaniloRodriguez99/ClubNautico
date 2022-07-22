@@ -65,5 +65,64 @@ namespace DataAccess.Classes
 
             return response;
         }
+
+        public GetUsersOut getUsers(GetUsersIn input)
+        {
+            try
+            {
+                GetUsersOut response = new GetUsersOut() { Result = OperationResult.failure };
+
+                var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
+
+                using (SqlConnection conn = new SqlConnection(connectionstring))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("getUsers", conn))
+                    {
+
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@PageSize", System.Data.SqlDbType.Int).Value = input.PageSize;
+                        cmd.Parameters.Add("@From", System.Data.SqlDbType.Int).Value = input.From;
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (response.Users == null)
+                            {
+                                response.Users = new List<User>();
+                            }
+
+                            while (reader.Read())
+                            {
+                                var user = new User()
+                                {
+                                    Username = reader["Username"].ToString(),
+                                    UserId = int.Parse(reader["Id"].ToString()),
+                                    Birthday = DateTime.Parse(reader["Birthday"].ToString()),
+                                    Ci = int.Parse(reader["Ci"].ToString()),
+                                    Email = reader["Email"].ToString(),
+                                    Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
+                                    //ProfileIMG = reader["ProfileIMG"].ToString(), TODO - falta crearlo en bd
+                                    Role = (RoleEnum)int.Parse(reader["Role"].ToString()),
+                                    CreationDate = DateTime.Parse(reader["CreationDate"].ToString()),
+                                    Name = reader["Name"].ToString(),
+                                    Lastname = reader["Lastname"].ToString(),
+
+                                };
+
+                                response.Users.Add(user);
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

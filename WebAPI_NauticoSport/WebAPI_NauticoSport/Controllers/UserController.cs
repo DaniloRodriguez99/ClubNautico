@@ -14,11 +14,12 @@ namespace WebAPI_NauticoSport.Controllers
     public class UserController : Controller
     {
         private static IConfiguration _configuration;
-        private Domain.DomainFacade domainFacade = new Domain.DomainFacade(_configuration);
+        private Domain.DomainFacade domainFacade;
 
         public UserController(IConfiguration config)
         {
             _configuration = config;
+            domainFacade = new Domain.DomainFacade(_configuration);
         }
 
         [HttpPost("signUp")]
@@ -44,7 +45,7 @@ namespace WebAPI_NauticoSport.Controllers
                                 {
                                     UserId = int.Parse(identity.FindFirst("UserId").Value),
                                     Name = identity.FindFirst("Name").Value,
-                                    LastName = identity.FindFirst("Lastname").Value,
+                                    Lastname = identity.FindFirst("Lastname").Value,
                                     Username = identity.FindFirst("Username").Value,
                                     Ci = int.Parse(identity.FindFirst("Ci").Value),
                                     Email = identity.FindFirst("Username").Value,
@@ -61,6 +62,20 @@ namespace WebAPI_NauticoSport.Controllers
                     );;
             }
             return Ok(output);
+        }
+
+        [HttpGet("users")]
+        public IActionResult getUsers([FromQuery] GetUsersIn input)
+        {
+
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var output = new GetUsersOut() { Result = OperationResult.failure };
+            if (identity != null)
+            {
+                output = domainFacade.getUsers(input);
+                return Ok(output);
+            }
+            return BadRequest(output);
         }
     }
 }

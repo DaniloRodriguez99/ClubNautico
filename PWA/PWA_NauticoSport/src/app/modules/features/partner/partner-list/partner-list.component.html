@@ -1,1 +1,23 @@
-<p>partner-list works!</p>
+<div class="container pb-5">
+    <div class="row">
+      <div class="col-12 filtersSection container">
+        <div class="browseContainer">
+          <input [formControl]="browserInput" class="browseInput" type="text" placeholder="Buscar">
+          <img class="searchIcon" src="../../../../../assets/images/searchIcon.png" alt="Search image" (click)="browse()">
+        </div>
+        <img #searchIcon class="filterIcon" src="../../../../../assets/images/filterIcon.png" (click)="activeFilterModal(searchIcon)" alt="Filter icon">
+        <app-context-panel #filterContextPanel>
+          <button></button>
+        </app-context-panel>
+      </div>
+
+      <div class="col-12 container-fluid">
+        <button (click)="seeMore()">Buscar</button>
+        <div class="myItem" *ngFor="let user of users" >
+            <span> {{ 'pages.partner.list.titles.name' | translate }} <label class="userValues">{{ user.name + ' ' + user.lastname }} </label></span>
+            <span> {{ 'pages.partner.list.titles.userId' | translate }} <label class="userValues">{{ user.userId }}</label> </span>
+            <span> {{ 'pages.partner.list.titles.creationDate' | translate }} <label class="userValues">{{ user.creationDate | date }}</label></span>
+        </div>
+      </div>
+    </div>
+</div>

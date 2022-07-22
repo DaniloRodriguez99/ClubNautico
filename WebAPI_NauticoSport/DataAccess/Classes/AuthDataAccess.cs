@@ -66,7 +66,7 @@ namespace DataAccess.Classes
                                             Role = (RoleEnum)int.Parse(reader["Role"].ToString()),
                                             CreationDate = DateTime.Parse(reader["CreationDate"].ToString()),
                                             Name = reader["Name"].ToString(),
-                                            LastName = reader["Lastname"].ToString(),
+                                            Lastname = reader["Lastname"].ToString(),
 
                                         };
                                             response.User = user;

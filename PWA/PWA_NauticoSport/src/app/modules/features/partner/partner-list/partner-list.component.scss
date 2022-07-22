@@ -1,0 +1,273 @@
+.filtersSection {
+    height: 12vh;
+    margin-bottom: 8px;
+    display: flex;
+    border-style: solid;
+    border-color: #803F3F;
+    border-width: 1px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    align-items: center;
+    align-content: center;
+    .browseContainer{
+        border-radius: 8px;
+        background-color: #434242;
+        border: none;
+        height: 33px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        padding-right: 10px;
+
+        .browseInput {
+            height: 100%;
+            border-radius: 8px;
+            background-color: #434242;
+            border: none;
+            color: rgb(207, 206, 206);
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .searchIcon {
+            height: 20px;
+        }
+        .searchIcon:hover {
+            cursor: pointer;
+        }
+
+        .browseInput:focus {
+            outline: unset;
+        }
+    }
+    .browseContainer:focus {
+        border-color: #a51c1c;
+        border-style: solid;
+        border-width: 1px;
+        outline: unset;
+    }
+    
+    .filterIcon {
+        margin-left: 20px;
+        height: 30px;
+    }
+
+    .filterIcon:hover {
+        cursor: pointer;
+    }
+
+    .searchIcon {
+        margin-left: 20px;
+        height: 30px;
+    }
+
+    .searchIcon:hover {
+        cursor: pointer;
+    }
+}
+
+.myItem {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    width: 100%;
+    background-color: #242424;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    border-radius: 8px;
+    border-color: #1C1C1C;
+    border-style: solid;
+    border-width: thin;
+    padding-left: 1vw;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    span {
+        line-height: 110%;
+        color: #A7A5A5;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        border-left: 8px solid;
+        border-color: #972323;
+        padding-left: 1vw;
+        .userValues {
+            color: white;
+        }
+    }
+}
+
+.myItem:hover {
+    border-color: #972323;
+    border-style: solid;
+    border-width: thin;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1024px) { //notebook
+}
+
+@media (max-width: 768px) { //tablet
+}
+
+@media (max-width: 425px) { //cellphone lg
+    .filtersSection {
+        .filterIcon {
+            margin-left: 30px;
+        }
+
+        .searchIcon {
+            margin-left: 30px;
+        }
+    }
+}
+
+@media (max-width: 375px) { //cellphone md
+    .filtersSection {
+        .filterIcon {
+            margin-left: 20px;
+        }
+
+        .searchIcon {
+            margin-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 320px) { //cellphone sm
+    
+    .filtersSection {
+        .filterIcon {
+            margin-left: 0px;
+        }
+
+        .searchIcon {
+            margin-left: 0px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.scroll-container {
+    overflow-x: auto;
+    border: 1px;
+    border-color: azure;
+    border-style: solid;
+}
+
+.partnersList {
+    color: white;
+    width: 100%;
+    tr {
+        .litle {
+            width: 60px;
+        }
+        .medium {
+            width: 100px;
+        }
+        .date {
+            width: 120px;
+        }
+        .large {
+            width: 200px;
+        }
+    }
+    
+    .header {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        border-style: solid;
+        td {
+            border: 1px;
+            border-top: 0px;
+            border-bottom: 1px;
+            border-color: azure;
+            border-style: solid;
+            text-align: center;
+        }
+    }
+    .listItem {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        td {
+            border: 1px;
+            border-top: 0px;
+            border-bottom: 0px;
+            border-color: azure;
+            border-style: solid;
+            text-align: center;
+        }
+    }
+    
+}
+
+@media (max-width: 1024px) { //notebook
+}
+
+@media (max-width: 768px) { //tablet
+    td {
+        width: 30%;
+    }
+}
+
+@media (max-width: 425px) { //cellphone lg
+}
+
+@media (max-width: 375px) { //cellphone md
+}
+
+@media (max-width: 320px) { //cellphone sm
+    td {
+        width: 200px;
+        max-width: 300px;
+    }
+}

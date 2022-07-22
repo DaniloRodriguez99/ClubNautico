@@ -1,5 +1,5 @@
 *.vsidx
-*.dll
+#.dll
 *.cache
 *.exe
 *.pdb

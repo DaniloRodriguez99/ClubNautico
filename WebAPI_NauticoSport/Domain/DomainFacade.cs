@@ -29,5 +29,9 @@ namespace Domain
         public UserSignUpOut userSignUp(UserSignUpIn input) {
             return UserDomain.Instance().userSignUp(input);
         }
+
+        public GetUsersOut getUsers(GetUsersIn input) {
+            return UserDomain.Instance().getUsers(input);
+        }
     }
 }

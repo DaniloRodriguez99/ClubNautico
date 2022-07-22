@@ -13,6 +13,7 @@ namespace WebAPI_NauticoSport.Controllers
     [Authorize]
     public class PartnerController : Controller
     {
+
         private static IConfiguration _configuration;
         private Domain.DomainFacade domainFacade = new Domain.DomainFacade(_configuration);
 

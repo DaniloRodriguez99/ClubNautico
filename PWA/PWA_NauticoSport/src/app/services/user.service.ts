@@ -55,5 +55,30 @@ export class UserService {
       })
     });
   }
+
+  public getUsers = (pageSize: number, from: number) : Promise<Observable<any>> => {
+    return new Promise<Observable<any>>((resolve, reject) => {
+      let request = () => {
+        let response = this.http.get(this.baseURL + "/api/user/users",{
+          params: {
+            PageSize: pageSize,
+            From: from
+          }
+        })
+        return response;
+      }
+
+      return request()
+      .pipe(
+        catchError((err) => {
+          reject(err.error)
+          return throwError(() => new Error(err.error))
+        })
+      )
+      .subscribe((response: any) => {
+        resolve(response)
+      })
+  })
+  }
 }
 

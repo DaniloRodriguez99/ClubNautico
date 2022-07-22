@@ -15,9 +15,11 @@ export class AuthenticationService {
 
   timeout = 0;
   tokenSubscription = new Subscription();
+  private _isLogged : boolean = false;
 
   public onLoginChange = new Subject();
 
+  // Log the user in, sending the username and the password of the user
   login = (user: string, pass: string) : Promise<Observable<any>> => {
     return new Promise<Observable<any>>((resolve, reject) => {
         let loginRequest = (user: string, pass: string) => {
@@ -36,6 +38,7 @@ export class AuthenticationService {
         )
         .subscribe((response:any) => {
           this.storeUserData(response);
+          this._isLogged = true;
           this.onLoginChange.next(response)
           resolve(response)
         })
@@ -43,20 +46,22 @@ export class AuthenticationService {
     )
   }
 
+  // Log the user out, and navigate to the beginning of the app
   logout() {
     this.tokenSubscription.unsubscribe();
     localStorage.clear();
     this.router.navigate(["/login"])
+    this._isLogged = false;
     this.onLoginChange.next(null);
   }
 
+  // Store the user data that we will use in other places
   storeUserData = (data: any) => {
     let date = this.jwtHelper.getTokenExpirationDate(data.token);
     if(date != null) 
     {
       this.timeout = date.valueOf() - new Date().valueOf()
     }
-
     localStorage.setItem('access_token', data.token); 
     localStorage.setItem('username', data.user.username); 
     localStorage.setItem('userId', data.user.userId); 
@@ -65,7 +70,24 @@ export class AuthenticationService {
 
     this.expirationCounter(this.timeout)
   }
+
+  // Used for check if the user is logged ,true is logged, false is not logged
+  isLogged = () : boolean => {
+    return this._isLogged;
+  }
+
+  // Check if the token has already expired, used in the initialization of the app
+  // is used to valdiate if the user have other token of previos session and if it is available
+  expirationValidator() {
+    let date = this.jwtHelper.getTokenExpirationDate(localStorage.getItem('access_token')?.toString());
+    if(date != null) 
+    {
+      this.timeout = date.valueOf() - new Date().valueOf()
+      this.expirationCounter(this.timeout); // Renew the regressive counter, if the timeout has expired then the expirationCounter method will logOut the user
+    }
+  }
   
+  //Regressive counter for the token expiration
   expirationCounter(timeout: any) {
     this.tokenSubscription.unsubscribe();
     this.tokenSubscription = of(null).pipe(delay(timeout)).subscribe((expired) => {

@@ -11,7 +11,13 @@
             },
             "detail": {},
             "delete": {},
-            "list": {},
+            "list": {
+                "titles": {
+                    "name": "Nombre: ",
+                    "userId": "Nro Socio: ",
+                    "creationDate": "Fecha de ingreso: "
+                }
+            },
             "modify": {}
         }
     },

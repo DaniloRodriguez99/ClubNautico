@@ -13,14 +13,15 @@ export class AppComponent {
     private translateService: TranslateService
     ) {}
 
-  userType:any = localStorage.getItem('userType')
+    role:any = localStorage.getItem('role')
 
   ngOnInit(): void {
+    this.authService.expirationValidator();
     this.authService.onLoginChange.subscribe((data: any) => {
       if(data != null) {
-        this.userType = data.user.userType;
+        this.role = data.user.role;
       } else {
-        this.userType = data;
+        this.role = data;
       }
     })
   }

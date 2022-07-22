@@ -13,7 +13,7 @@ namespace CrossCuttingConcerns.Models
 
         public string Name { get; set; }
 
-        public string LastName { get; set; }
+        public string Lastname { get; set; }
 
         public string Username { get; set; }
 

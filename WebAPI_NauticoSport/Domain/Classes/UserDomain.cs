@@ -26,5 +26,10 @@ namespace Domain.Classes
         {
             return dataAccessFacade.userSignUp(input);
         }
+
+        public GetUsersOut getUsers(GetUsersIn input)
+        {
+            return dataAccessFacade.getUsers(input);
+        }
     }
 }

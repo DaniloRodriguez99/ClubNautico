@@ -1,0 +1,79 @@
+
+
+.filterContextPanelActive {
+    position:fixed;
+    min-width: 200px;
+    min-height: 200px;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #636363;
+    background-color: #d3d3d3;
+    padding: 0;
+    .header {
+        width: 100%;
+        height: 20px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #636363;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-end;
+        .closeIcon {
+            height: 15px;
+        }
+        
+        .closeIcon:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.closed {
+    display: none;
+}
+
+.filterModalPopUpActive {
+    position:fixed;
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #636363;
+    background-color: #d3d3d3;
+    width: 84vw;
+    left: 8vw !important;
+    height: 80vh;
+    top: 30px !important;
+    
+
+    .header {
+        width: 100%;
+        height: 8vw;
+        max-height: 40px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #636363;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-end;
+        .closeIcon {
+            height: 5vw;
+            max-height: 40px;
+        }
+        
+        .closeIcon:hover {
+            cursor: pointer;
+        }
+    }
+}
+

@@ -12,6 +12,7 @@ import { SitemapComponent } from './sitemap/sitemap.component';
 import { MessageComponent } from './message/message.component';
 import { TranslatePipe } from 'src/app/pipes/translate.pipe';
 import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component';
+import { ContextPanelComponent } from './context-panel/context-panel.component';
 
 @NgModule({
   declarations: [NavbarComponent,
@@ -21,6 +22,7 @@ import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component
     MessageComponent,
     TranslatePipe,
     BottomNavBarComponent,
+    ContextPanelComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component
     MessageComponent,
     TranslatePipe,
     BottomNavBarComponent,
+    ContextPanelComponent,
   ],
   providers: [
   ]

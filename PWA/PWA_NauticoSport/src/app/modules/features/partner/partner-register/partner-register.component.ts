@@ -19,7 +19,8 @@ export class PartnerRegisterComponent implements OnInit {
   constructor( private router: Router,
     private userService: UserService,
     private fb: FormBuilder) { }
-    isSubmitted = false;
+
+  isSubmitted = false;
 
   ngOnInit(): void {
     this.isSubmitted = false;

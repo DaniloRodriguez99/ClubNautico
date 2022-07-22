@@ -36,5 +36,10 @@ namespace DataAccess
         public UserSignUpOut userSignUp(UserSignUpIn input) {
             return UserDataAccess.Instance().userSignUp(input);
         }
+
+        public GetUsersOut getUsers(GetUsersIn input)
+        {
+            return UserDataAccess.Instance().getUsers(input);
+        }
     }
 }
