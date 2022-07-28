@@ -68,11 +68,11 @@ namespace DataAccess.Classes
 
         public GetUsersOut getUsers(GetUsersIn input)
         {
+            GetUsersOut response = new GetUsersOut() { Result = OperationResult.failure };
             try
             {
-                GetUsersOut response = new GetUsersOut() { Result = OperationResult.failure };
-
                 var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
+
 
                 using (SqlConnection conn = new SqlConnection(connectionstring))
                 {
@@ -111,6 +111,13 @@ namespace DataAccess.Classes
 
                                 response.Users.Add(user);
                             }
+
+                            if (reader.HasRows) {
+                                response.Result = OperationResult.success;
+                            } else
+                            {
+                                response.Result = OperationResult.notFound;
+                            }
                         }
                     }
                     conn.Close();
@@ -120,9 +127,71 @@ namespace DataAccess.Classes
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                return response;
             }
+        }
+
+        public GetUserByIdOut getUserById(GetUserByIdIn input)
+        {
+
+            GetUserByIdOut result = new GetUserByIdOut() { Result = OperationResult.failure };
+            try
+            {
+                var connectionstring = ConfigurationClass.Instance().GetConnectionString("nauticoSportConnectionString");
+
+
+                using (SqlConnection conn = new SqlConnection(connectionstring))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("getUserById", conn))
+                    {
+
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@UserId", System.Data.SqlDbType.Int).Value = input.UserId;
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+
+                            while (reader.Read())
+                            {
+                                result = new GetUserByIdOut
+                                {
+                                    UserId = int.Parse(reader["Id"].ToString()),
+                                    Birthday = DateTime.Parse(reader["Birthday"].ToString()),
+                                    Ci = int.Parse(reader["Ci"].ToString()),
+                                    Email = reader["Email"].ToString(),
+                                    Genre = (GenreEnum)int.Parse(reader["GenreId"].ToString()),
+                                    //ProfileIMG = reader["ProfileIMG"].ToString(), TODO - falta crearlo en bd
+                                    Role = (RoleEnum)int.Parse(reader["Role"].ToString()),
+                                    CreationDate = DateTime.Parse(reader["CreationDate"].ToString()),
+                                    Name = reader["Name"].ToString(),
+                                    Lastname = reader["Lastname"].ToString(),
+
+                                };
+                            }
+
+                            if (reader.HasRows)
+                            {
+                                result.Result = OperationResult.success;
+                            }
+                            else
+                            {
+                                result.Result = OperationResult.notFound;
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+
+                return result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return result;
         }
     }
 }

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { Filter } from '../helper/filter';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,13 @@ export class PartnerService {
 
   baseURL = "https://localhost:7259"
 
-  getPartnerByPartnerId = () => {
+  getPartnerById = (partnerId : number) => {
     let request = () => {
-      let response =  this.http.get(this.baseURL + '/api/partner', {});
+      let response =  this.http.get(this.baseURL + '/api/partner', {
+        params: {
+          PartnerId: partnerId
+        }
+      });
       return response;
     }
     return request().subscribe((response:any) => {
@@ -52,6 +57,32 @@ export class PartnerService {
         resolve(response)
       })
     });
+  }
+
+  public getPartners = (pageSize: number, from: number, filters: Filter) : Promise<Observable<any>> => {
+    return new Promise<Observable<any>>((resolve, reject) => {
+      let request = () => {
+        let response = this.http.get(this.baseURL + "/api/partner/list",{
+          params: {
+            PageSize: pageSize,
+            From: from,
+            Filters: JSON.stringify(filters)
+          }
+        })
+        return response;
+      }
+
+      return request()
+      .pipe(
+        catchError((err) => {
+          reject(err.error)
+          return throwError(() => new Error(err.error))
+        })
+      )
+      .subscribe((response: any) => {
+        resolve(response)
+      })
+  })
   }
 }
 

@@ -1,4 +1,5 @@
 ﻿using CrossCuttingConcerns.DTOs;
+using CrossCuttingConcerns.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,6 +22,7 @@ namespace DataAccess.Classes
         }
         #endregion
 
+       
         /*public PartnerSignUpOut partnerSignUp(PartnerSignUpIn input) {
             PartnerSignUpOut response = new PartnerSignUpOut();
 

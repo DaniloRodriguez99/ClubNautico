@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace CrossCuttingConcerns.DTOs
 {
-    public class GetPartnerIn
+    public class GetPartnerByIdIn
     {
-        public int Id { get; set; }
+        public int PartnerId { get; set; }
     }
 }

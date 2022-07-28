@@ -12,6 +12,11 @@
             "detail": {},
             "delete": {},
             "list": {
+                "buttons": {
+                    "detail": "Detalle",
+                    "fees": "Cuotas"
+                },
+                "seeMore": "Ver mas",
                 "titles": {
                     "name": "Nombre: ",
                     "userId": "Nro Socio: ",

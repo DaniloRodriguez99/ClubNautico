@@ -10,6 +10,11 @@
                 
             },
             "list": {
+                "buttons": {
+                    "detail": "Detail",
+                    "fees": "Fees"
+                },
+                "seeMore": "See more",
                 "titles": {
                     "name": "Name: ",
                     "userId": "Partner Id: ",

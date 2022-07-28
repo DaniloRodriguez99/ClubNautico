@@ -7,36 +7,18 @@ using System.Threading.Tasks;
 
 namespace CrossCuttingConcerns.DTOs
 {
-    public class GetPartnerOut
+    public class GetPartnerByIdOut
     {
-
-        public string PartnerId { get; set; }
-
-        public PartnerTypeEnum PartnerType { get; set; }
-
         public int UserId { get; set; }
-
         public string Name { get; set; }
-
-        public string LastName { get; set; }
-
-        public string Username { get; set; }
-
-        public int CI { get; set; }
-
+        public string Lastname { get; set; }
+        public int Ci { get; set; }
         public string Email { get; set; }
-
         public GenreEnum Genre { get; set; }
-
-        //public string ProfileIMG { get; set; } TODO: investigar sobre como guardar las imagenes etc
-
+        public string ProfileIMG { get; set; }
         public DateTime Birthday { get; set; }
-
         public DateTime CreationDate { get; set; }
-
         public RoleEnum Role { get; set; }
-
-        public OperationResult OperationResult { get; set; }
-
+        public OperationResult Result { get; set; }
     }
 }

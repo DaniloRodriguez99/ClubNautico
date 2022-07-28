@@ -29,17 +29,24 @@ namespace DataAccess
         }
         #endregion 
 
-        public LoginOut login(LoginIn input) {
+        public LoginOut login(LoginIn input) 
+        {
             return AuthDataAccess.Instance().login(input);
         }
 
-        public UserSignUpOut userSignUp(UserSignUpIn input) {
+        public UserSignUpOut userSignUp(UserSignUpIn input) 
+        {
             return UserDataAccess.Instance().userSignUp(input);
         }
 
         public GetUsersOut getUsers(GetUsersIn input)
         {
             return UserDataAccess.Instance().getUsers(input);
+        }
+
+        public GetUserByIdOut getUserById(GetUserByIdIn input) 
+        {
+            return UserDataAccess.Instance().getUserById(input);
         }
     }
 }

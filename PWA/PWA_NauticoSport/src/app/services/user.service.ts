@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, Subject, Subscription, throwError } from 'rxjs';
 import { RoleEnum } from 'src/app/helper/role-enum';
+import { Filter } from '../helper/filter';
 
 @Injectable({
   providedIn: 'root'
@@ -56,13 +57,14 @@ export class UserService {
     });
   }
 
-  public getUsers = (pageSize: number, from: number) : Promise<Observable<any>> => {
+  public getUsers = (pageSize: number, from: number, filters: Filter) : Promise<Observable<any>> => {
     return new Promise<Observable<any>>((resolve, reject) => {
       let request = () => {
         let response = this.http.get(this.baseURL + "/api/user/users",{
           params: {
             PageSize: pageSize,
-            From: from
+            From: from,
+            Filters: JSON.stringify(filters)
           }
         })
         return response;

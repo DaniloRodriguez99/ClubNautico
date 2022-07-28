@@ -33,5 +33,14 @@ namespace Domain
         public GetUsersOut getUsers(GetUsersIn input) {
             return UserDomain.Instance().getUsers(input);
         }
+
+        public GetPartnersOut getPartners(GetPartnersIn input)
+        {
+            return PartnerDomain.Instance().getPartners(input);
+        }
+
+        public GetPartnerByIdOut getPartnerById(GetPartnerByIdIn input) {
+            return PartnerDomain.Instance().getPartnerById(input);
+        }
     }
 }

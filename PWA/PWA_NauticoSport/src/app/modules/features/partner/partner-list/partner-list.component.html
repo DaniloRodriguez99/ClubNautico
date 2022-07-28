@@ -2,22 +2,72 @@
     <div class="row">
       <div class="col-12 filtersSection container">
         <div class="browseContainer">
-          <input [formControl]="browserInput" class="browseInput" type="text" placeholder="Buscar">
-          <img class="searchIcon" src="../../../../../assets/images/searchIcon.png" alt="Search image" (click)="browse()">
+          <input [formControl]="browserInput" (keyup.enter)="browsePartners()" class="browseInput" type="text" placeholder="Buscar por nombre">
+          <img class="searchIcon" src="../../../../../assets/images/searchIcon.png" alt="Search image" (click)="browsePartners()">
         </div>
         <img #searchIcon class="filterIcon" src="../../../../../assets/images/filterIcon.png" (click)="activeFilterModal(searchIcon)" alt="Filter icon">
         <app-context-panel #filterContextPanel>
-          <button></button>
+          <div class="myFilterContent">
+            <form action="" [formGroup]="formFilters" (ngSubmit)="onFilter()">
+              <div class="filterSection">
+                <label class="titleSection" for="female">Documento</label>
+                <div>
+                  <label for="ci">CI</label>
+                  <input type="text" name="ci" formControlName="ciFilterInput">
+                </div>
+              </div>
+
+                <div class="filterSection">
+                  <label class="titleSection" for="female">Genero</label>
+                  <div>
+                    <label for="male">Hombre</label>
+                    <input type="checkbox" formControlName="maleFilterInput" name="male">
+                  </div>
+                  <div>
+                    <label for="female">Mujer</label>
+                    <input type="checkbox" formControlName="femaleFilterInput" name="female">
+                  </div>
+                  <div>
+                    <label for="female">Otro</label>
+                    <input type="checkbox" formControlName="OtherFilterInput" name="female">
+                  </div>
+                </div>
+                <div class="filterSection">
+                  <label class="titleSection" for="female">Ingreso</label>
+
+                  <div>
+                    <label for="female" class="w-30">Desde: </label>
+                    <input type="date" formControlName="dateFromFilterInput" class="w-70">
+                  </div>
+                  <div>
+                    <label for="female" class="w-30">Hasta: </label>
+                    <input type="date" formControlName="dateToFilterInput" class="w-70">
+                  </div>
+                </div>
+                <button type="submit"class="filterButton">Filtrar</button>
+            </form>
+          </div>
         </app-context-panel>
       </div>
 
-      <div class="col-12 container-fluid">
-        <button (click)="seeMore()">Buscar</button>
+      <div class="col-12 container-fluid text-center">
         <div class="myItem" *ngFor="let user of users" >
-            <span> {{ 'pages.partner.list.titles.name' | translate }} <label class="userValues">{{ user.name + ' ' + user.lastname }} </label></span>
-            <span> {{ 'pages.partner.list.titles.userId' | translate }} <label class="userValues">{{ user.userId }}</label> </span>
-            <span> {{ 'pages.partner.list.titles.creationDate' | translate }} <label class="userValues">{{ user.creationDate | date }}</label></span>
-        </div>
+            <div class="myItemData">
+              <span> {{ 'pages.partner.list.titles.name' | translate }} <label class="userValues">{{ user.name + ' ' + user.lastname }} </label></span>
+              <span> {{ 'pages.partner.list.titles.userId' | translate }} <label class="userValues">{{ user.userId }}</label> </span>
+              <span> {{ 'pages.partner.list.titles.creationDate' | translate }} <label class="userValues">{{ user.creationDate | date }}</label></span>
+            </div>
+            <div class="myItemButtons" >
+              <div class="myItemButtonContainer">
+                <button class="btn btn-success">{{ 'pages.partner.list.buttons.fees' | translate }}</button>
+              </div>
+              <div class="myItemButtonContainer">
+                <button class="btn btn-primary" (click)="goToDetail(user)" >{{ 'pages.partner.list.buttons.detail' | translate }}</button>
+              </div>
+            </div>
+          </div>
+        <span  class="seeMore" (click)="seeMore()" *ngIf="activeSeemore">{{ 'pages.partner.list.seeMore' | translate }}</span>
+        <div class="lds-ellipsis" *ngIf="isLoading"><div></div><div></div><div></div>
       </div>
     </div>
 </div>

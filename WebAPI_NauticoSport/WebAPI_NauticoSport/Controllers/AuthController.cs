@@ -1,10 +1,12 @@
 ﻿using CrossCuttingConcerns.DTOs;
 using CrossCuttingConcerns.Enums;
 using CrossCuttingConcerns.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 
 namespace WebAPI_NauticoSport.Controllers
@@ -62,6 +64,38 @@ namespace WebAPI_NauticoSport.Controllers
             }
             return NotFound("Usuario o contraseña incorrecta");
 
+        }
+
+        [HttpGet("refreshToken")]
+        [Authorize]
+        public IActionResult refreshUserToken() {
+
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+
+            return Ok();
+        }
+
+        private static bool ValidateToken(string authToken)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var validationParameters = GetValidationParameters();
+
+            SecurityToken validatedToken;
+            IPrincipal principal = tokenHandler.ValidateToken(authToken, validationParameters, out validatedToken);
+            return true;
+        }
+
+        private static TokenValidationParameters GetValidationParameters()
+        {
+            return new TokenValidationParameters()
+            {
+                ValidateLifetime = true,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidAudience = _configuration["Jwt:Audience"],
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]))
+            };
         }
     }
 }

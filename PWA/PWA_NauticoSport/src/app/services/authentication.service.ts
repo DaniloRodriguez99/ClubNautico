@@ -17,7 +17,7 @@ export class AuthenticationService {
   tokenSubscription = new Subscription();
   private _isLogged : boolean = false;
 
-  public onLoginChange = new Subject();
+  public onLoginChange = new Subject<void>();
 
   // Log the user in, sending the username and the password of the user
   login = (user: string, pass: string) : Promise<Observable<any>> => {
@@ -52,7 +52,7 @@ export class AuthenticationService {
     localStorage.clear();
     this.router.navigate(["/login"])
     this._isLogged = false;
-    this.onLoginChange.next(null);
+    this.onLoginChange.next();
   }
 
   // Store the user data that we will use in other places
@@ -89,9 +89,31 @@ export class AuthenticationService {
   
   //Regressive counter for the token expiration
   expirationCounter(timeout: any) {
-    this.tokenSubscription.unsubscribe();
-    this.tokenSubscription = of(null).pipe(delay(timeout)).subscribe((expired) => {
-      this.logout();
-    })
+    if(timeout > 0) {
+      this._isLogged = true;
+      this.onLoginChange.next()
+      this.tokenSubscription.unsubscribe();
+      this.tokenSubscription = of(null).pipe(delay(timeout)).subscribe((expired) => {
+        this.logout();
+      })
+    } else { this.logout(); }
+  }
+
+  // TODO TODAVIA NO ESTA FUNCIONANDO
+  refreshToken = () => {
+    return new Promise((resolve, reject) => {
+      let request = this.http.get("https://localhost:7259/api/auth/refreshToken")
+
+      request.pipe(
+        catchError((err) => {
+          reject(err);
+          return throwError(() => {return new Error(err)})
+        })
+      )
+      .subscribe((result) => {
+        this.storeUserData(result); 
+        resolve(result)
+      })
+    }) 
   }
 }

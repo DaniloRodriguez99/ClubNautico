@@ -22,23 +22,39 @@ namespace WebAPI_NauticoSport.Controllers
             _configuration = config;
         }
 
-        [HttpGet("partner")]
-        public IActionResult GetPartner()
+        [HttpGet]
+        public IActionResult GetPartnerById([FromQuery] GetPartnerByIdIn input)
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
+            GetPartnerByIdOut result = new GetPartnerByIdOut() { Result = OperationResult.failure };
+            try
+            {
+
+                if (identity != null)
+                {
+                    result = domainFacade.getPartnerById(input);
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
+
+        [HttpGet("list")]
+        public IActionResult getPartners([FromQuery] GetPartnersIn input)
+        {
+
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            var output = new GetPartnersOut() { Result = OperationResult.failure };
             if (identity != null)
             {
-                return Ok(
-                    new GetPartnerOut()
-                    {
-                        Username = identity.FindFirst("Username").Value,
-                        UserId = int.Parse(identity.FindFirst("UserId").Value),
-                        Genre = (GenreEnum)int.Parse(identity.FindFirst("Genre").Value),
-                        Role = (RoleEnum)int.Parse(identity.FindFirst("UserType").Value),
-                    }
-                );
+                output = domainFacade.getPartners(input);
+                return Ok(output);
             }
-            return NotFound("Socio no encontrado");
+            return BadRequest(output);
         }
     }
 }

@@ -16,6 +16,7 @@ export class AppComponent {
     role:any = localStorage.getItem('role')
 
   ngOnInit(): void {
+    this.authService.refreshToken();
     this.authService.expirationValidator();
     this.authService.onLoginChange.subscribe((data: any) => {
       if(data != null) {

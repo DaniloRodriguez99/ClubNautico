@@ -10,6 +10,7 @@ export class ContextPanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.setPanelSizeByWindowsSize();
   }
 
   filtersModal : HTMLElement | null = null;
@@ -21,13 +22,28 @@ export class ContextPanelComponent implements OnInit {
   
   //Detect if the user has clicked out of the panel, in this case the panel will be closed
   clickedOutside = (event: any) => {
-    if( event.target != this.filtersModal  && !this.isRecentlyOpened) {
+    let isInside = (element: any) : boolean => {
+      if (element == undefined)
+      {
+        return false;
+      }
+      else {
+        if (element == this.filtersModal)
+        {
+          return true;
+        } else {
+          return isInside(element.parentElement);
+        }
+      }
+    };
+
+    if( !isInside(event.target) && !this.isRecentlyOpened) {
       this.closeModal();
     }
     this.isRecentlyOpened = false;
   };
 
-  activeFilterModal = (element: HTMLElement) => {
+  activeModal = (element: HTMLElement) => {
     if(this.filtersModal == undefined) {
       this.filtersModal = document.getElementById("filtersModal");
     }
@@ -42,7 +58,7 @@ export class ContextPanelComponent implements OnInit {
 
   // Manage the changes of windows size, and in function of it will change the panel
   @HostListener('window:resize', ['$event'])
-  getScreenSize(event? : any) {
+  setPanelSizeByWindowsSize(event? : any) {
         this.scrHeight = window.innerHeight;
         this.scrWidth = window.innerWidth;
         this.isTabletSizeOrLess = this.scrWidth <= 800;   
